@@ -39,7 +39,7 @@ Page({
         {
           'icon':'./../../images/icon_07.png',
           'text':'注册登录',
-          'url':'register'
+          'url':'login'
         },
         {
           'icon':'./../../images/icon_09.png',
@@ -55,7 +55,7 @@ Page({
           'icon':'./../../images/icon_13.png',
           'text':'入驻申请',
           'url':'apply'
-        }
+        },
       ],
       imgUrls: [
         '../../images/banner_02.jpg',

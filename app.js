@@ -1,4 +1,5 @@
 //app.js
+import 'vendor/weapp-cookie/index'
 App({
   onLaunch: function () {
     //小程序初始化完成只执行一次
@@ -35,4 +36,6 @@ App({
     //全局信息
     userInfo:null
   },
+
+  
 })

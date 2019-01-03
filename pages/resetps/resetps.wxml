@@ -1,0 +1,19 @@
+<view class="container">
+  <form bindsubmit='formSubmit' class='form'>
+  	<view class="input-list">
+
+    <view class="input-item">
+			<text class="input-item-label">密码</text>
+			<view class="input-item-content">
+				<input name="Password" type="text" auto-focus placeholder="请输入您的密码" bindinput="inputPassword" value="{{Password}}"></input>
+			</view>
+		</view>
+
+
+	</view>
+  <view class="btn-submit">
+		<button class="btn-block btn-orange" formType="submit" disabled="{{submited}}">修改密码</button>
+	</view>
+  </form>
+
+</view>

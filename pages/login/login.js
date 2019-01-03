@@ -1,29 +1,33 @@
 Page({
   data: {
-    Name: '',
+    //indexmenu: [],
     No:'',
     Password:'',
-    Type:'',
-    Tel:'',
+
     submited: false
   },
+  onLoad: function () {
+    //生命周期函数--监听页面加载
+    //this.fetchData();
+    // var that = this
+    // //调用应用实例的方法获取全局数据
+    // app.getUserInfo(function(userInfo){
+    //   //更新数据
+    //   that.setData({
+    //     userInfo:userInfo
+    //   })
+    // })
+  },
+
+
   inputNo: function (e) {
     this.setData({
       No: e.detail.value
     })
   },
-  inputName: function (e) {
-    this.setData({
-      Name: e.detail.value
-    })
-  },
   inputPassword: function (e) {
     this.setData({
       Password: e.detail.value
-    })
-  }, inputTel: function (e) {
-    this.setData({
-      Tel: e.detail.value
     })
   },
   formSubmit: function (e) {
@@ -44,30 +48,29 @@ Page({
     //   })
     // }
     console.log(e.detail.value.No)
+    console.log(e.detail.value.Password)
     wx.request({
-      url: 'http://shx.nat300.top/api/user/register',
+      url: 'http://shx.nat300.top/api/user/login',
       header: {
       },
       method: "POST",
       data: {
         //method: 'user/register',
         userNo: e.detail.value.No,
-        userName: e.detail.value.Name,
         userPassword:e.detail.value.Password,
-        userTel:e.detail.value.Tel,
-        userType:1,
       },
       success: function (res) {
-        if (res.data.status == 200) {
+        console.log(res)
+        if (res.data.code == "0") {
           wx.showToast({
-            title: "注册成功",
+            title: "登录成功",
             icon: 'success',
             duration: 1000
           })
-          that.setData({ No: '', Password: '' ,Name:'',Type:'',Tel:''});
         } else {
           wx.showToast({
-            title: "注册失败",
+            //title: res.data.info,
+            title:"登录失败",
             icon: 'loading',
             duration: 1500
           })

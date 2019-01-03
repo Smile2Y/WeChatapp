@@ -14,7 +14,9 @@
     "pages/activity/activity",
     "pages/activitydetail/activitydetail",
     "pages/my/my",
-    "pages/myconferencelist/myconferencelist"
+    "pages/myconferencelist/myconferencelist",
+    "pages/login/login",
+    "pages/resetps/resetps"
   ],
   "window":{
     "backgroundTextStyle":"white",
