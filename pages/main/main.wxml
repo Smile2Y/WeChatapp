@@ -1,0 +1,76 @@
+<view class='container'>
+  <view class='backgrounds'>
+    <view class='items' bindtap='switchiTo' id='coursemag'>
+      <view class='imagestyle'><image src='/image/coursemag.png'></image></view>
+      <view style='width:240px'>
+        <text>课程管理</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='backgrounds' id='teachingcal' bindtap='switchiTo'>
+    <view class='items' >
+      <view class='imagestyle'><image src='/image/calendar.png'></image></view>
+      <view style='width:240px'>
+        <text>教学日历管理</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='backgrounds' id='evaluatemag' bindtap='switchiTo'>
+    <view class='items'>
+      <view class='imagestyle'><image src='/image/index.png'></image></view>
+      <view style='width:240px'>
+        <text>评介指标设定</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='backgrounds'>
+   <view class='items'  id='evaluatemag'>
+      <view class='imagestyle'><image src='/image/student.png'></image></view>
+      <view style='width:240px'>
+        <text>学生管理</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='backgrounds'>
+   <view class='items'>
+      <view class='imagestyle'><image src='/image/companies.png'></image></view>
+      <view style='width:240px'>
+        <text>同行评价人管理</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <navigator url='../main/evaluate analyze/evaluatelyze'>
+    <view class='backgrounds'>
+      <view class='items'>
+      <view class='imagestyle'><image src='/image/analyze.png'></image></view>
+      <view style='width:240px'>
+        <text>评价分析</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+    </view>
+  </navigator>
+</view>

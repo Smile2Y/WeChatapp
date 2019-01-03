@@ -23,13 +23,13 @@ Page({
       indexmenu:[
         {
           'icon':'./../../images/icon_01.png',
-          'text':'众创空间',
-          'url':'space'
+          'text':'教师管理',
+          'url':'main'
         },
         {
           'icon':'./../../images/icon_03.png',
-          'text':'服务集市',
-          'url':'service'
+          'text':'未命名',
+          // 'url':'service'
         },
         {
           'icon':'./../../images/icon_05.png',
@@ -48,12 +48,12 @@ Page({
         },
         {
           'icon':'./../../images/icon_11.png',
-          'text':'物业服务',
+          'text':'未命名',
           'url':'property'
         },
         {
           'icon':'./../../images/icon_13.png',
-          'text':'入驻申请',
+          'text':'未命名',
           'url':'apply'
         },
       ],

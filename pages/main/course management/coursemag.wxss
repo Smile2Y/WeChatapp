@@ -1,0 +1,19 @@
+/* pages/main/course management/coursemag.wxss */
+.tab-wrapper{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #f2eada;
+}
+.tab-active{
+  width:50%;
+  height: 40px;
+  background: #f6f5ec;
+}
+.tab-left, .tab-right{
+  flex: 1;
+  font-size: 32rpx;
+  color: #000;
+  line-height: 100rpx;
+  text-align: center;
+
+}

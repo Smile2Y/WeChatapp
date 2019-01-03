@@ -1,0 +1,2 @@
+<!--pages/main/evaluate analyze/evaluatelyze.wxml-->
+<canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas"></canvas>

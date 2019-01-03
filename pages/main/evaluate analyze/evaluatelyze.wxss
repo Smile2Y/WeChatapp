@@ -1,0 +1,5 @@
+/* pages/main/evaluate analyze/evaluatelyze.wxss */
+.canvas{
+  height: 500px;
+  width: 500px;
+}

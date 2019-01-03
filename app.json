@@ -16,7 +16,15 @@
     "pages/my/my",
     "pages/myconferencelist/myconferencelist",
     "pages/login/login",
-    "pages/resetps/resetps"
+    "pages/resetps/resetps",
+
+
+
+      "pages/main/teaching calendar/teachingcald",
+      "pages/main/main",
+      "pages/main/course management/coursemag",
+      "pages/main/evaluate management/evaluatemag",
+      "pages/main/evaluate analyze/evaluatelyze"
   ],
   "window":{
     "backgroundTextStyle":"white",

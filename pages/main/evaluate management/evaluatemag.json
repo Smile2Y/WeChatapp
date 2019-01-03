@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "students":"/pages/main/evaluate management/settingS/students",
+    "teachers": "/pages/main/evaluate management/settingT/teachers"
+  }
+}

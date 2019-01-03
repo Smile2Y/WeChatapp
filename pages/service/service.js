@@ -20,6 +20,37 @@ Page({
   onLoad: function () { //加载数据渲染页面
     this.fetchServiceData();
     this.fetchFilterData();
+
+    var that = this
+    // this.getmsg(0, that.data.counter)
+
+
+    // wx.request({
+    //   url: 'http://shx.nat300.top/api/course/activeCourse',
+    //   // method:Post,
+    //   // header: { 'Content-Type': 'json' },
+    //   method: "POST",
+    //   success: function (res) {
+    //     // console.log(res.data)      
+    //     var coursedata = []
+    //     for (var data in res.data.data) {
+    //       var temp = {
+    //         id: res.data.data[data].id,
+    //         courseName: res.data.data[data].courseName,
+    //         courseNo: res.data.data[data].courseNo
+    //       }
+    //       coursedata.push(temp)
+    //     }
+    //     that.setData({
+    //       'coursedata': coursedata
+    //     })
+    //     // console.log(coursedata);
+        
+    //   },
+        
+    // })
+    // console.log(this.data)
+    // console.log(this.data.coursedata)
   },
   fetchFilterData:function(){ //获取筛选条件
     this.setData({
@@ -225,15 +256,32 @@ Page({
     })
     const page = this.data.page;
     const newlist = [];
-    for (var i = (page-1)*perpage; i < page*perpage; i++) {
-      newlist.push({
-        "id":i+1,
-        "name":"上海拜特信息技术有限公司"+(i+1),
-        "city":"上海",
-        "tag":"法律咨询",
-        "imgurl":"http://img.mukewang.com/57fdecf80001fb0406000338-240-135.jpg"
-      })
-    }
+    // var newlist1=[];
+    // newlist1=this.data.coursedata.value;
+
+    wx.request({
+      url: 'http://shx.nat300.top/api/course/activeCourse',
+      // method:Post,
+      // header: { 'Content-Type': 'json' },
+      method: "POST",
+      success: function (res) {
+        console.log(res.data)
+        for (var i = (page - 1) * perpage; i < page * perpage; i++) {
+          newlist.push({
+            "id": res.data.data[i].id,
+            "courseName": res.data.data[i].courseName,
+            "city": "上海",
+            "tag": "网络工程",
+            "imgurl": "http://img.mukewang.com/57fdecf80001fb0406000338-240-135.jpg"
+          })
+        }
+      },
+
+    })
+
+
+
+  
     setTimeout(()=>{
       _this.setData({
         servicelist:_this.data.servicelist.concat(newlist)
