@@ -99,7 +99,14 @@ Page({
     //     console.log(res)
     //   }
     // })
-    console.log(that.data.imag)
+    // console.log(that.data.imag)
+      wx.showToast({
+        title: '正在上传',
+        icon: 'loading',
+        duration: 2000
+      })
+    
+
     wx.uploadFile({
       url: 'http://shx.nat300.top/api/course/addCourse',
       filePath: that.data.imag,
@@ -114,12 +121,28 @@ Page({
         courseName: res.detail.value.courseName,
       },
       success:function(e){
-        console.log(e);
+        wx.showToast({
+          title: '上传成功',
+          icon: 'success',
+          duration:1500
+        })
+
+        // setTimeout(function () { wx.reLaunch({ url: '../index/index', }) }, 2000)
+        setTimeout(function (){
+          wx.redirectTo({
+            url: '../../teaching calendar/teachingcald',
+          })
+        },1500)
+
+        
       },
       fail: function (res) {
-        console.log("上传图片错误： ")
-        console.log(res)
-      }
+        wx.showToast({
+          title: '上传失败',
+          icon:"loading"
+        })
+      },
+     
     })
   }
 })
