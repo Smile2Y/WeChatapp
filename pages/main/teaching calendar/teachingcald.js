@@ -284,9 +284,9 @@ Page({
             id: res.data.data[data].id,
             courseName: res.data.data[data].courseName,
             courseNo: res.data.data[data].courseNo,
-            "city": "上海",
-            "tag": "网络工程",
-            imgurl: "http://img.mukewang.com/57fdecf80001fb0406000338-240-135.jpg"
+            "courseTeacherName": res.data.data[data].courseTeacherName,
+            "courseMajor": res.data.data[data].courseMajor,
+            imgurl: "http://shx.nat300.top" + res.data.data[data].coursePic
           }
           coursedata.push(temp)
         }
@@ -297,9 +297,6 @@ Page({
       },
 
     })
-
-
-
 
     // setTimeout(() => {
     //   _this.setData({
@@ -398,5 +395,10 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000)
+  },
+  enterTo:function(){
+    wx.navigateTo({
+      url: '/pages/main/teaching calendar/courseadditions/courseadds',
+    })
   }
 })
