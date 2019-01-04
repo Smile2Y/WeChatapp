@@ -11,8 +11,13 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
+<<<<<<< HEAD
 	"appid": "wx6db60f8e2768a91c",
 	"projectname": "WeChatappDemo1",
+=======
+	"appid": "wxf0edbe818f6ca7e3",
+	"projectname": "WeChat",
+>>>>>>> master
 	"condition": {
 		"search": {
 			"current": -1,
