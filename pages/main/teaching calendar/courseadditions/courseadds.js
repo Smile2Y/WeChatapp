@@ -1,3 +1,5 @@
+import cookie from '../../../../vendor/weapp-cookie/index'
+
 Page({
   data: {
     industryarr: [],
@@ -6,6 +8,9 @@ Page({
     statusindex: 0,
     jobarr: [],
     jobindex: 0,
+    courseDescribe:'',
+    courseMajor:'',
+    courseName:'',
     hasfinancing: false,  //是否已融资
     isorg: false,  //是否是机构
   },
@@ -53,60 +58,68 @@ Page({
       isorg: e.detail.value == "机构" ? true : false
     })
   },
-  applySubmit: function () {
-    wx.navigateTo({
-      url: ''
-    })
-  },
+  // applySubmit: function () {
+  //   wx.navigateTo({
+  //     url: ''
+  //   })
+  // },
   chooseimg:function(){
     var that=this
     wx.chooseImage({
       success: function(res) {
         console.log(res)
-        const tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths)
+        // const tempFilePaths = res.tempFilePaths
+        // console.log(tempFilePaths)
         that.setData({
           imag:res.tempFilePaths[0]
         })
+        console.log("选择图片： "+res.tempFilePaths[0])
       },
 
     })
   },
   formSubmit:function(res){
     var that=this;
-    console.log(res.detail.value)
+    // console.log(res.detail.value)
     var detail=res.detail.value;
-    console.log(res.detail.value.courseName)
-    console.log(res.detail.value.courseDescribe)
+    // console.log(res.detail.value.courseName)
+    // console.log(res.detail.value.courseDescribe)
 
-    wx.request({
+    // wx.request({
+    //   url: 'http://shx.nat300.top/api/course/addCourse',
+    //   method:"POST",
+    //   header: {},
+    //   data:{
+    //     "courseName": res.detail.value.courseName,
+    //     "courseDescribe": res.detail.value.courseDescribe,
+    //     "courseMajor": res.detail.value.courseMajor,
+    //     // coursePic: that.data.imag
+    //   },
+    //   success:function(res){
+    //     console.log(res)
+    //   }
+    // })
+    console.log(that.data.imag)
+    wx.uploadFile({
       url: 'http://shx.nat300.top/api/course/addCourse',
-      method:"POST",
-      header: {},
-      data:{
-        "courseName": res.detail.value.courseName,
-        "courseDescribe": res.detail.value.courseDescribe,
-        "courseMajor": res.detail.value.courseMajor,
-        // coursePic: that.data.imag
+      filePath: that.data.imag,
+      header: {
+        "content-type": "multipart/form-data",
+        "Cookie":"user_token="+cookie.get("user_token")
+        },
+      name: 'coursePic',
+      formData:{
+        courseDescribe: res.detail.value.courseDescribe,
+        courseMajor: res.detail.value.courseMajor,
+        courseName: res.detail.value.courseName,
       },
-      success:function(res){
+      success:function(e){
+        console.log(e);
+      },
+      fail: function (res) {
+        console.log("上传图片错误： ")
         console.log(res)
       }
     })
-    // wx.uploadFile({
-    //   url: 'http://shx.nat300.top/api/course/addCourse',
-    //   filePath: that.data.imag,
-    //   header: {
-    //     "content-type": "multipart/form-data"},
-    //   name: 'coursePic',
-    //   formData:{
-    //     courseDescribe: res.detail.value.courseDescribe,
-    //     courseMajor: res.detail.value.courseMajor,
-    //     courseName: res.detail.value.courseName,
-    //   },
-    //   success:function(e){
-    //     console.log(e);
-    //   }
-    // })
   }
 })
