@@ -4,7 +4,9 @@
 			<input type="text" maxlength="12" placeholder="请输入关键字查询" bindinput="inputSearch"></input>
 			<button class="search-btn" bindtap="submitSearch" wx:if="{{showsearch}}">搜索</button>
 		</view>
-		<button class="search-extra-btn">当前课程</button>
+		<button class="search-extra-btn">课程搜索</button>
+		<button class="search-extra-btn" bindtap='enterTo'>课程添加</button>
+
 	</view>
 	<!-- <view class="filter-flex">
 		<view class="filter-tab">
@@ -40,9 +42,9 @@
 				<view class="service-text">
 					<view class="service-tite">{{item.courseName}}</view>
 					<view class="service-tags">
-						<text>{{item.tag}}</text>
+						<text>{{item.courseMajor}}</text>
 					</view>
-					<text class="service-city">授课教师：{{item.city}}</text>
+					<text class="service-city">授课教师：{{item.courseTeacherName}}</text>
 				</view>
 			</navigator>
 		</view>
