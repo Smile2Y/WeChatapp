@@ -44,7 +44,7 @@ Page({
         {
           'icon':'./../../images/icon_09.png',
           'text':'同行评价',
-          'url':'peer_evaluation'
+          'url':'service'
         },
         {
           'icon':'./../../images/icon_11.png',

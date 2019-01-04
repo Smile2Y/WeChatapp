@@ -42,7 +42,7 @@
 					<view class="service-tags">
 						<text>{{item.tag}}</text>
 					</view>
-					<text class="service-city">授课教师：{{item.city}}</text>
+					<text class="service-city">授课教师：{{item.teacher}}</text>
 				</view>
 			</navigator>
 		</view>
