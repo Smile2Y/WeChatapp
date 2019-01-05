@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "courseadd":"/pages/main/course management/courseaddtion/courseadd",
+    "courseadd":"/pages/main/teaching calendar/courseadditions/courseadds",
     "coursearc": "/pages/main/course management/coursearchive/coursearc"
   }
 }

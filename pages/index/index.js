@@ -24,7 +24,7 @@ Page({
         {
           'icon':'./../../images/icon_01.png',
           'text':'教师管理',
-          'url':'main'
+          'url':'main/teaching calendar/teachingcald'
         },
         {
           'icon':'./../../images/icon_03.png',
