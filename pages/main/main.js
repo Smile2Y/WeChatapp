@@ -84,10 +84,5 @@ id:""
         url: '/pages/main/teaching calendar/teachingcald?id=' + this.data.id,
       })
     }
-    // if(id==='studentmag'){
-    //   wx.navigateTo({
-    //     url: '/pages/main/student management/studentmag',
-    //   })
-    // }
 }
 })

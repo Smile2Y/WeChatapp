@@ -1,5 +1,5 @@
 <view class="container container-gray">
 <view>
-<web-view src="http://shx.nat300.top"></web-view>
+<web-view src="http://shx.nat300.top/hello"></web-view>
 </view>
 </view>
