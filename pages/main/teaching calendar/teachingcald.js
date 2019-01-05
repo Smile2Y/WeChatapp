@@ -21,7 +21,7 @@ Page({
   },
   onLoad: function () { //加载数据渲染页面
     this.fetchServiceData();
-    this.fetchFilterData();
+    // this.fetchFilterData();
 
     
     // this.getmsg(0, that.data.counter)
@@ -391,7 +391,7 @@ Page({
       servicelist: []
     })
     this.fetchServiceData();
-    this.fetchFilterData();
+    // this.fetchFilterData();
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000)

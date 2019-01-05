@@ -69,37 +69,22 @@ Page({
       success: function(res) {
         console.log(res)
         // const tempFilePaths = res.tempFilePaths
-        // console.log(tempFilePaths)
+        console.log(res.tempFilePaths)
         that.setData({
           imag:res.tempFilePaths[0]
         })
+        console.log(res)
         console.log("选择图片： "+res.tempFilePaths[0])
+        console.log(res.tempFiles)
       },
 
     })
   },
   formSubmit:function(res){
     var that=this;
-    // console.log(res.detail.value)
-    var detail=res.detail.value;
-    // console.log(res.detail.value.courseName)
-    // console.log(res.detail.value.courseDescribe)
 
-    // wx.request({
-    //   url: 'http://shx.nat300.top/api/course/addCourse',
-    //   method:"POST",
-    //   header: {},
-    //   data:{
-    //     "courseName": res.detail.value.courseName,
-    //     "courseDescribe": res.detail.value.courseDescribe,
-    //     "courseMajor": res.detail.value.courseMajor,
-    //     // coursePic: that.data.imag
-    //   },
-    //   success:function(res){
-    //     console.log(res)
-    //   }
-    // })
-    // console.log(that.data.imag)
+    var detail=res.detail.value;
+
       wx.showToast({
         title: '正在上传',
         icon: 'loading',
@@ -107,42 +92,42 @@ Page({
       })
     
 
-    wx.uploadFile({
-      url: 'http://shx.nat300.top/api/course/addCourse',
-      filePath: that.data.imag,
-      header: {
-        "content-type": "multipart/form-data",
-        "Cookie":"user_token="+cookie.get("user_token")
-        },
-      name: 'coursePic',
-      formData:{
-        courseDescribe: res.detail.value.courseDescribe,
-        courseMajor: res.detail.value.courseMajor,
-        courseName: res.detail.value.courseName,
-      },
-      success:function(e){
-        wx.showToast({
-          title: '上传成功',
-          icon: 'success',
-          duration:1500
-        })
+    // wx.uploadFile({
+    //   url: 'http://shx.nat300.top/api/course/addCourse',
+    //   filePath: that.data.imag,
+    //   header: {
+    //     "content-type": "multipart/form-data",
+    //     "Cookie":"user_token="+cookie.get("user_token")
+    //     },
+    //   name: 'coursePic',
+    //   formData:{
+    //     courseDescribe: res.detail.value.courseDescribe,
+    //     courseMajor: res.detail.value.courseMajor,
+    //     courseName: res.detail.value.courseName,
+    //   },
+    //   success:function(e){
+    //     wx.showToast({
+    //       title: '上传成功',
+    //       icon: 'success',
+    //       duration:1500
+    //     })
 
-        // setTimeout(function () { wx.reLaunch({ url: '../index/index', }) }, 2000)
-        setTimeout(function (){
-          wx.redirectTo({
-            url: '../../teaching calendar/teachingcald',
-          })
-        },1500)
+    //     // setTimeout(function () { wx.reLaunch({ url: '../index/index', }) }, 2000)
+    //     setTimeout(function (){
+    //       wx.redirectTo({
+    //         url: '../../teaching calendar/teachingcald',
+    //       })
+    //     },1500)
 
         
-      },
-      fail: function (res) {
-        wx.showToast({
-          title: '上传失败',
-          icon:"loading"
-        })
-      },
+    //   },
+    //   fail: function (res) {
+    //     wx.showToast({
+    //       title: '上传失败',
+    //       icon:"loading"
+    //     })
+    //   },
      
-    })
+    // })
   }
 })

@@ -24,7 +24,8 @@
 				<view class="input-item input-item-full">
 				<text class="input-item-label">课程参考图片</text>
 					<view class="img-upload">
-						<view class="img-add"  bindtap='chooseimg'></view>
+						<view class="img-add"  bindtap='chooseimg'>
+            <image src='{{imag}}' style='width:55px;height:55px'></image></view>
 						<view class="img-item">
 						</view>
 					</view>
