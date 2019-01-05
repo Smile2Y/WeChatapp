@@ -22,7 +22,9 @@
     "pages/main/main",
     "pages/main/course management/coursemag",
     "pages/main/evaluate management/evaluatemag",
-    "pages/main/evaluate analyze/evaluatelyze"
+    "pages/main/evaluate analyze/evaluatelyze",
+    "pages/main/student management/studentmag",
+    "pages/main/student management/excel input/excelin"
   ],
   "window":{
     "backgroundTextStyle":"white",

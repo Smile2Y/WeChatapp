@@ -36,6 +36,7 @@
     </view>
   </view>
 
+<navigator url='student management/studentmag'>
   <view class='backgrounds'>
    <view class='items'  id='evaluatemag'>
       <view class='imagestyle'><image src='/image/student.png'></image></view>
@@ -47,6 +48,8 @@
       </view>
     </view>
   </view>
+
+</navigator>
 
   <view class='backgrounds'>
    <view class='items'>

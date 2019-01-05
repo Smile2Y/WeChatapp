@@ -1,22 +1,18 @@
-// pages/main/main.js
+// pages/main/student management/studentmag.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-id:""
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.id=options.id
-    // this.setData({
-    //   id:id
-    // })
-    
+
   },
 
   /**
@@ -66,28 +62,5 @@ id:""
    */
   onShareAppMessage: function () {
 
-  },
-  switchiTo :function(e){
-    let id = e.currentTarget.id
-    if (id ==='coursemag'){
-      wx.navigateTo({
-        url: '/pages/main/course management/coursemag?id='+this.data.id,
-      })
-    }
-    if (id === 'evaluatemag'){
-      wx.navigateTo({
-        url: '/pages/main/evaluate management/evaluatemag?id=' + this.data.id,
-      })
-    }
-    if (id === 'teachingcal') {
-      wx.navigateTo({
-        url: '/pages/main/teaching calendar/teachingcald?id=' + this.data.id,
-      })
-    }
-    // if(id==='studentmag'){
-    //   wx.navigateTo({
-    //     url: '/pages/main/student management/studentmag',
-    //   })
-    // }
-}
+  }
 })
