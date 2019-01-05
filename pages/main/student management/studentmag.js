@@ -1,4 +1,4 @@
-// pages/main/main.js
+// pages/main/student management/studentmag.js
 Page({
 
   /**
@@ -62,28 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  switchiTo :function(e){
-    let id = e.currentTarget.id
-    if (id ==='coursemag'){
-      wx.navigateTo({
-        url: '/pages/main/course management/coursemag',
-      })
-    }
-    if (id === 'evaluatemag'){
-      wx.navigateTo({
-        url: '/pages/main/evaluate management/evaluatemag',
-      })
-    }
-    if (id === 'teachingcal') {
-      wx.navigateTo({
-        url: '/pages/main/teaching calendar/teachingcald',
-      })
-    }
-    // if(id==='studentmag'){
-    //   wx.navigateTo({
-    //     url: '/pages/main/student management/studentmag',
-    //   })
-    // }
-}
+  }
 })
