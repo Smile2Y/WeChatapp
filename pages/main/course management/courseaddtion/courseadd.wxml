@@ -1,2 +1,41 @@
-<!--pages/main/course management/courseaddtion/courseadd.wxml-->
-<text>课程添加界面</text>
+<view class="container container-gray">
+<form bindsubmit="formSubmit"  bindreset="formReset">
+	<view class="group">
+		<view class="group-header">课程添加信息</view>
+		<view class="group-body">
+			<view class="input-list">
+				<view class="input-item">
+					<text class="input-item-label">课程名称</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入课程名称" name='courseName'></input>
+					</view>
+				</view>
+				<view class="input-item">
+					<text class="input-item-label">授课专业</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入授课专业" name='courseMajor'></input>
+					</view>
+				</view>
+		
+				<view class="input-item input-item-full">
+					<text class="input-item-label">课程描述</text>
+					<textarea placeholder="可输入50字" maxlength="50" name='courseDescribe'></textarea>
+				</view>
+				<view class="input-item input-item-full">
+				<text class="input-item-label">课程参考图片</text>
+					<view class="img-upload">
+						<view class="img-add"  bindtap='chooseimg'>
+            <image src='{{imag}}' style='width:55px;height:55px'></image></view>
+						<view class="img-item">
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		</view>
+	<view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="applySubmit" type="primary" form-type="submit">提交</button>
+	</view>
+</form>
+
+</view>
