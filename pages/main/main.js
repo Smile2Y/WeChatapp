@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.data.id=options.id
+    // this.setData({
+    //   id:id
+    // })
+    
   },
 
   /**
@@ -67,17 +71,17 @@ Page({
     let id = e.currentTarget.id
     if (id ==='coursemag'){
       wx.navigateTo({
-        url: '/pages/main/course management/coursemag',
+        url: '/pages/main/course management/coursemag?id='+this.data.id,
       })
     }
     if (id === 'evaluatemag'){
       wx.navigateTo({
-        url: '/pages/main/evaluate management/evaluatemag',
+        url: '/pages/main/evaluate management/evaluatemag?id=' + this.data.id,
       })
     }
     if (id === 'teachingcal') {
       wx.navigateTo({
-        url: '/pages/main/teaching calendar/teachingcald',
+        url: '/pages/main/teaching calendar/teachingcald?id=' + this.data.id,
       })
     }
     // teachingcal

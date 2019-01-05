@@ -4,3 +4,4 @@
   </view>
   <view class='content-wrapper' wx:if='{{currentTab === 0}}'><students/></view>
   <view class='content-wrapper' wx:if='{{currentTab === 1}}'><teachers/></view>
+  <component-tag-name prop-a="{{id}}" ></component-tag-name> 

@@ -34,17 +34,17 @@ Page({
         {
           'icon':'./../../images/icon_05.png',
           'text':'学生评价',
-          'url':'conference'
+          'url':'conference/conference'
         },
         {
           'icon':'./../../images/icon_07.png',
           'text':'注册登录',
-          'url':'login'
+          'url':'login/login'
         },
         {
           'icon':'./../../images/icon_09.png',
           'text':'同行评价',
-          'url':'service'
+          'url':'service/service'
         },
         {
           'icon':'./../../images/icon_11.png',

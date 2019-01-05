@@ -1,5 +1,5 @@
    <view class='tab-wrapper'>
-    <view id='tableft' class='tab-left {{currentTab === 0 ? "tab-active":""}}' bindtap='switchTab'><view class='tabitem'>课程添加</view></view>
+    <view id='tableft' class='tab-left {{currentTab === 0 ? "tab-active":""}}' bindtap='switchTab'><view class='tabitem'>管理教学日历</view></view>
     <view id='tabright' class='tab-right {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'><view class='tabitem'>课程归档</view></view>
   </view>
   <view class='content-wrapper' wx:if='{{currentTab === 0}}'><courseadd/></view>

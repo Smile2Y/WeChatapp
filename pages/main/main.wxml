@@ -11,7 +11,7 @@
     </view>
   </view>
 
-  <view class='backgrounds' id='teachingcal' bindtap='switchiTo'>
+  <!-- <view class='backgrounds' id='teachingcal' bindtap='switchiTo'>
     <view class='items' >
       <view class='imagestyle'><image src='/image/calendar.png'></image></view>
       <view style='width:240px'>
@@ -21,7 +21,7 @@
         <image src='/image/toright.png'></image>
       </view>
     </view>
-  </view>
+  </view> -->
 
 
   <view class='backgrounds' id='evaluatemag' bindtap='switchiTo'>

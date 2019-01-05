@@ -92,42 +92,42 @@ Page({
       })
     
 
-    // wx.uploadFile({
-    //   url: 'http://shx.nat300.top/api/course/addCourse',
-    //   filePath: that.data.imag,
-    //   header: {
-    //     "content-type": "multipart/form-data",
-    //     "Cookie":"user_token="+cookie.get("user_token")
-    //     },
-    //   name: 'coursePic',
-    //   formData:{
-    //     courseDescribe: res.detail.value.courseDescribe,
-    //     courseMajor: res.detail.value.courseMajor,
-    //     courseName: res.detail.value.courseName,
-    //   },
-    //   success:function(e){
-    //     wx.showToast({
-    //       title: '上传成功',
-    //       icon: 'success',
-    //       duration:1500
-    //     })
+    wx.uploadFile({
+      url: 'http://shx.nat300.top/api/course/addCourse',
+      filePath: that.data.imag,
+      header: {
+        "content-type": "multipart/form-data",
+        "Cookie":"user_token="+cookie.get("user_token")
+        },
+      name: 'coursePic',
+      formData:{
+        courseDescribe: res.detail.value.courseDescribe,
+        courseMajor: res.detail.value.courseMajor,
+        courseName: res.detail.value.courseName,
+      },
+      success:function(e){
+        wx.showToast({
+          title: '上传成功',
+          icon: 'success',
+          duration:1500
+        })
 
-    //     // setTimeout(function () { wx.reLaunch({ url: '../index/index', }) }, 2000)
-    //     setTimeout(function (){
-    //       wx.redirectTo({
-    //         url: '../../teaching calendar/teachingcald',
-    //       })
-    //     },1500)
+        // setTimeout(function () { wx.reLaunch({ url: '../index/index', }) }, 2000)
+        setTimeout(function (){
+          wx.redirectTo({
+            url: '../../teaching calendar/teachingcald',
+          })
+        },1500)
 
         
-    //   },
-    //   fail: function (res) {
-    //     wx.showToast({
-    //       title: '上传失败',
-    //       icon:"loading"
-    //     })
-    //   },
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '上传失败',
+          icon:"loading"
+        })
+      },
      
-    // })
+    })
   }
 })
