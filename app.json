@@ -25,7 +25,8 @@
     "pages/main/evaluate management/evaluatemag",
     "pages/main/evaluate analyze/evaluatelyze",
     "pages/main/student management/studentmag",
-    "pages/main/student management/excel input/excelin"
+    "pages/main/student management/excel input/excelin",
+    "pages/main/peer management/peermag"
   ],
   "window":{
     "backgroundTextStyle":"white",

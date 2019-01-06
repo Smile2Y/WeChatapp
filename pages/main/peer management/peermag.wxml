@@ -11,7 +11,7 @@
       <view class="input-item">
         <text class="input-item-label">手机号码</text>
         <view class="input-item-content">
-          <input name="Tel" type="idcard" auto-focus placeholder="请输入您的密码" bindinput="inputTel" value="{{Tel}}"></input>
+          <input name="Password" type="text" auto-focus placeholder="请输入您的密码" bindinput="inputPassword" value="{{Password}}"></input>
         </view>
       </view>
     </view>
@@ -23,7 +23,7 @@
 
 
     <view class="btn-submit">
-      <navigator class="index-menu-item" url="excel input/excelin?courseId={{id}}&courseName={{courseName}}&userType=0">
+      <navigator class="index-menu-item" url="excel input/excelin">
         <button class="btn-block btn-orange">
           Excel表导入</button>
       </navigator>
