@@ -6,7 +6,14 @@ Page({
    */
   data: {
 currentTab:0,
-id:""
+    id:"",
+    userShow:"name",
+    index:0,
+    array: ['学生', '教师'], 
+    objectArray:
+     [
+       { id: 0, name: '学生' }, 
+     { id: 1, name: '教师' }]
   },
 
   /**
@@ -71,5 +78,43 @@ this.data.id=options.id
     } else if (tab === 'tabright') {
       this.setData({ currentTab: 1 })
     }
+  },
+
+  bindPickerChange: function (e) {
+    var index = this.data.index 
+    this.setData({      
+      index: e.detail.value    
+      })  },
+  formSubmit:function(e){
+    var data=e.detail.value
+    wx.request({
+      url: 'http://shx.nat300.top/api/assess/addNorm',
+      method:"POST",
+      data  :{
+        "normName":e.detail.value.normName,
+        "normType":this.data.index,
+        "courseId":this.data.id
+      },
+      success: function (res) { 
+        wx.showToast({
+          title: '上传成功',
+          icon: 'success',
+          duration: 1500}),
+          setTimeout(function () {
+            wx.redirectTo({
+              url: '../../teaching calendar/teachingcald',
+            })
+          }, 1500)
+      },
+      fail: function (res) { 
+
+      },
+      complete: function (res) { 
+
+      },
+    })
+     
+  
   }
+  
 })

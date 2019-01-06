@@ -44,3 +44,11 @@
 .service-city{
 	color: #666;
 }
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+

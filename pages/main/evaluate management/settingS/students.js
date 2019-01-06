@@ -3,17 +3,22 @@ Component({
   /**
    * 组件的属性列表
    */
+
   properties: {
-    propA: {
-      type: String
+    'show': {
+      type: String,
+      value: ''
     }
+  },
+  ready: function () {
+    console.log(this.properties);
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    normType: 0
   },
 
   /**

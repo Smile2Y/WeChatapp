@@ -82,9 +82,7 @@ Page({
   },
   formSubmit:function(res){
     var that=this;
-
     var detail=res.detail.value;
-
       wx.showToast({
         title: '正在上传',
         icon: 'loading',

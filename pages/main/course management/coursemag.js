@@ -5,13 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab:0
+    currentTab:0,
+    id:"",
+    course:[],
+    courses:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.id=options.id;
+//     console.log(this.data.id)
+var that=this
+wx.request({
+  url: 'http://shx.nat300.top/api/course/courseCalendar',
+  method:"POST",
+  data:{
+    "id": this.data.id,
+  },
+  success: function(e){
+    if(e.data.data[0]!=null){
+      that.setData({
+        course: e.data.data[0]
+      })
+    }
+// console.log(that.data.course)
+  }
+})
 
   },
 
@@ -70,5 +91,75 @@ Page({
     } else if (tab === 'tabright') {
       this.setData({ currentTab: 1 })
     }
+  },
+
+
+  // 提交表单
+  formSubmit: function (res) {
+    var that = this;
+    var detail = res.detail.value;
+    // console.log(this.data.id)
+    // console.log(detail)
+    wx.showToast({
+      title: '',
+      icon: 'loading',
+      duration: 1500
+    }),
+    wx.request({
+      url: 'http://shx.nat300.top/api/course/addCourseCalendar',
+      method:"POST",
+      data:{
+        // "id": this.data.id,
+        "courseId": that.data.id,
+        "courseTime": detail.courseTime,
+        "courseTopic": detail.courseTopic,
+        "courseContent": detail.courseContent,
+        "courseKnowledge": detail.courseKnowledge,
+        "courseAbility": detail.courseAbility
+      },
+      success: function (e) {
+        // console.log(e)
+        wx.showToast({
+          title: '上传成功',
+          icon: 'success',
+          duration: 1500
+        })
+        setTimeout(function () {
+          wx.redirectTo({
+            url: '../../main/teaching calendar/teachingcald',
+          })
+        }, 1500)
+
+
+      }
+      
+    })
+
+  },
+  // 课程归档
+  applySubmit:function(){
+    wx.request({
+      url: 'http://shx.nat300.top/api/course/unactiveCourse',
+      method:"POST",
+      data:{
+        "id":this.data.id
+      },
+      success:function(e){
+        wx.showToast({
+          title: '归档成功',
+          icon: 'success',
+          duration: 1500
+        })
+        setTimeout(function () {
+          wx.redirectTo({
+            url: '../../main/teaching calendar/teachingcald',
+          })
+        }, 1500)
+      },
+      fail:function(){
+        console.log("失败")
+      }
+    })
   }
+
 })

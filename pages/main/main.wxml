@@ -3,7 +3,7 @@
     <view class='items' bindtap='switchiTo' id='coursemag'>
       <view class='imagestyle'><image src='/image/coursemag.png'></image></view>
       <view style='width:240px'>
-        <text>课程管理</text>
+        <text>教学日历管理</text>
       </view>
       <view class=''>
         <image src='/image/toright.png'></image>

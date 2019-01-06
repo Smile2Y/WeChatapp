@@ -49,5 +49,8 @@
 			</navigator>
 		</view>
 		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+
+    <view class=" {{showOrHidden?'show':'hide'}}"><text>当前没有课程，请添加课程</text></view>
 	</scroll-view>
+   
 </view>

@@ -1,6 +1,69 @@
-   <view class='tab-wrapper'>
+   <!-- <view class='tab-wrapper'>
     <view id='tableft' class='tab-left {{currentTab === 0 ? "tab-active":""}}' bindtap='switchTab'><view class='tabitem'>管理教学日历</view></view>
     <view id='tabright' class='tab-right {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'><view class='tabitem'>课程归档</view></view>
   </view>
   <view class='content-wrapper' wx:if='{{currentTab === 0}}'><courseadd/></view>
-  <view class='content-wrapper' wx:if='{{currentTab === 1}}'><coursearc/></view>
+  <view class='content-wrapper' wx:if='{{currentTab === 1}}'><coursearc/></view> -->
+
+<view class="container container-gray">
+<form bindsubmit="formSubmit"  bindreset="formReset">
+	<view class="group" >
+		<view class="group-header">课程教学日历管理</view>
+		<view class="group-body">
+			<view class="input-list">
+				<view class="input-item">
+					<text class="input-item-label">教学时间</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="{{course.courseTime}}" name='courseTime'></input>
+					</view>
+				</view>
+				<view class="input-item">
+					<text class="input-item-label">教学主题</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="{{course.courseTopic}}" name='courseTopic'></input>
+					</view>
+				</view>
+        <!-- <view class="input-item">
+					<text class="input-item-label">教学内容</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入教学内容" name='courseMajor'></input>
+					</view>
+				</view>
+		<view class="input-item">
+					<text class="input-item-label">知识要求</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入知识要求" name='courseMajor'></input>
+					</view>
+				</view> -->
+		<view class="input-item">
+					<text class="input-item-label">能力要求</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="{{course.courseAbility}}" name='courseAbility'></input>
+					</view>
+				</view>
+		
+		
+				<view class="input-item input-item-full">
+					<text class="input-item-label">知识要求</text>
+					<textarea placeholder="{{course.courseKnowledge}}" maxlength="50" name='courseKnowledge'></textarea>
+				</view>
+
+        <view class="input-item input-item-full">
+					<text class="input-item-label">教学内容</text>
+					<textarea placeholder="{{course.courseContent}}" maxlength="50" name='courseContent'></textarea>
+				</view>
+
+
+			</view>
+		</view>
+		</view>
+	<view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="" type="primary" form-type="submit">提交</button>
+	</view>
+
+  	<view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="applySubmit" type="primary" >课程归档</button>
+	</view>
+</form>
+
+</view>

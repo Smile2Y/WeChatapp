@@ -1,7 +1,32 @@
-   <view class='tab-wrapper'>
+<!-- <view class='tab-wrapper'>
+   <evaluatemag show='{{userShow}}'></evaluatemag>
     <view id='tableft' class='tab-left {{currentTab === 0 ? "tab-active":""}}' bindtap='switchTab'><view class='tabitem'>学生指标</view></view>
     <view id='tabright' class='tab-right {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'><view class='tabitem'>同行指标</view></view>
   </view>
   <view class='content-wrapper' wx:if='{{currentTab === 0}}'><students/></view>
   <view class='content-wrapper' wx:if='{{currentTab === 1}}'><teachers/></view>
-  <component-tag-name prop-a="{{id}}" ></component-tag-name> 
+  -->
+
+<view class="container container-gray">
+<form bindsubmit="formSubmit"  bindreset="formReset">
+	<view class="group">
+		<view class="group-header">课程评价指标设定</view>
+		<view class="group-body">
+			<view class="input-list">
+		  <view class="input-item-label" style='margin-top:20px'>请选定对象</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style='margin-bottom:10px' >
+    <view style='margin-top:5px'> 当前选择：{{array[index]}} </view>
+  </picker>
+				<view class="input-item input-item-full">
+					<text class="input-item-label" style='margin-bottom:5px'>评价指标描述</text>
+					<textarea placeholder="可输入50字" maxlength="50" name='normName'></textarea>
+				</view>
+			</view>
+		</view>
+		</view>
+	<view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="applySubmit" type="primary" form-type="submit">提交</button>
+	</view>
+</form>
+
+</view>
