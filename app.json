@@ -21,10 +21,13 @@
     "pages/main/teaching calendar/courseadditions/courseadds",
     "pages/main/main",
     "pages/main/course management/coursemag",
+    "pages/main/course management/courseaddtion/courseadd",
     "pages/main/evaluate management/evaluatemag",
     "pages/main/evaluate analyze/evaluatelyze",
     "pages/main/student management/studentmag",
-    "pages/main/student management/excel input/excelin"
+    "pages/main/student management/excel input/excelin",
+    "pages/main/peer management/peermag",
+    "pages/main/peer management/excel input/excelin"
   ],
   "window":{
     "backgroundTextStyle":"white",

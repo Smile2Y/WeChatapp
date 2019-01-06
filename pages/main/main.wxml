@@ -36,7 +36,7 @@
     </view>
   </view>
 
-<navigator url='student management/studentmag'>
+<navigator url='student management/studentmag?id={{id}}&courseName={{courseName}}'>
   <view class='backgrounds'>
    <view class='items'  id='evaluatemag'>
       <view class='imagestyle'><image src='/image/student.png'></image></view>
@@ -51,6 +51,7 @@
 
 </navigator>
 
+<navigator url='peer management/peermag?id={{id}}&courseName={{courseName}}'>
   <view class='backgrounds'>
    <view class='items'>
       <view class='imagestyle'><image src='/image/companies.png'></image></view>
@@ -62,6 +63,8 @@
       </view>
     </view>
   </view>
+
+</navigator>
 
   <navigator url='../main/evaluate analyze/evaluatelyze'>
     <view class='backgrounds'>

@@ -22,204 +22,42 @@ Page({
   },
   onLoad: function () { //加载数据渲染页面
     this.fetchServiceData();
-    // if (this.data.servicelist=== undefined) {
-    //   this.setData({
-    //     showOrHidden: true
-    //   })
-    // }
+    console.log(this.id)
+    console.log(this.courseName)
+    // this.fetchFilterData();
+
+    
+    // this.getmsg(0, that.data.counter)
+
+
+    // wx.request({
+    //   url: 'http://shx.nat300.top/api/course/activeCourse',
+    //   // method:Post,
+    //   // header: { 'Content-Type': 'json' },
+    //   method: "POST",
+    //   success: function (res) {
+    //     // console.log(res.data)      
+    //     var coursedata = []
+    //     for (var data in res.data.data) {
+    //       var temp = {
+    //         id: res.data.data[data].id,
+    //         courseName: res.data.data[data].courseName,
+    //         courseNo: res.data.data[data].courseNo
+    //       }
+    //       coursedata.push(temp)
+    //     }
+    //     that.setData({
+    //       'coursedata': coursedata
+    //     })
+    //     // console.log(coursedata);
+
+    //   },
+
+    // })
+    // console.log(this.data)
+    // console.log(this.data.coursedata)
   },
-  // fetchFilterData: function () { //获取筛选条件
-  //   this.setData({
-  //     filterdata: {
-  //       "sort": [
-  //         {
-  //           "id": 0,
-  //           "title": "全部"
-  //         },
-  //         {
-  //           "id": 1,
-  //           "title": "人力资源",
-  //           "subsort": [
-  //             {
-  //               "id": 1,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 11,
-  //               "title": "社会及商业保险"
-  //             },
-  //             {
-  //               "id": 12,
-  //               "title": "招聘、猎头"
-  //             },
-  //             {
-  //               "id": 13,
-  //               "title": "薪酬绩效"
-  //             },
-  //           ]
-  //         },
-  //         {
-  //           "id": 2,
-  //           "title": "财务法务",
-  //           "subsort": [
-  //             {
-  //               "id": 2,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 21,
-  //               "title": "知识产权保护"
-  //             },
-  //             {
-  //               "id": 22,
-  //               "title": "工商注册"
-  //             },
-  //             {
-  //               "id": 23,
-  //               "title": "法律咨询"
-  //             },
-  //           ]
-  //         },
-  //         {
-  //           "id": 3,
-  //           "title": "行政办公",
-  //           "subsort": [
-  //             {
-  //               "id": 3,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 31,
-  //               "title": "翻译"
-  //             },
-  //             {
-  //               "id": 32,
-  //               "title": "速记"
-  //             }
-  //           ]
-  //         },
-  //         {
-  //           "id": 4,
-  //           "title": "创业指导",
-  //           "subsort": [
-  //             {
-  //               "id": 4,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 41,
-  //               "title": "创业培训"
-  //             }
-  //           ]
-  //         },
-  //       ],
-  //       "city": [
-  //         {
-  //           "id": 0,
-  //           "title": "全部"
-  //         },
-  //         {
-  //           "id": 1,
-  //           "title": "湖北省",
-  //           "subcity": [
-  //             {
-  //               "id": 1,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 11,
-  //               "title": "武汉市"
-  //             },
-  //             {
-  //               "id": 12,
-  //               "title": "襄阳市"
-  //             },
-  //             {
-  //               "id": 13,
-  //               "title": "孝感市"
-  //             },
-  //             {
-  //               "id": 14,
-  //               "title": "随州市"
-  //             },
-  //             {
-  //               "id": 15,
-  //               "title": "荆州市"
-  //             },
-  //             {
-  //               "id": 16,
-  //               "title": "黄冈市"
-  //             },
-  //             {
-  //               "id": 17,
-  //               "title": "天门市"
-  //             },
-  //             {
-  //               "id": 18,
-  //               "title": "仙桃市"
-  //             },
-  //             {
-  //               "id": 19,
-  //               "title": "潜江市"
-  //             },
-  //             {
-  //               "id": 20,
-  //               "title": "十堰市"
-  //             },
-  //             {
-  //               "id": 21,
-  //               "title": "宜昌市"
-  //             },
-  //             {
-  //               "id": 22,
-  //               "title": "咸宁市"
-  //             },
-  //           ]
-  //         },
-  //         {
-  //           "id": 2,
-  //           "title": "浙江省",
-  //           "subcity": [
-  //             {
-  //               "id": 2,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 21,
-  //               "title": "杭州市"
-  //             },
-  //             {
-  //               "id": 22,
-  //               "title": "金华市"
-  //             },
-  //             {
-  //               "id": 23,
-  //               "title": "义乌市"
-  //             },
-  //           ]
-  //         },
-  //         {
-  //           "id": 3,
-  //           "title": "江苏省",
-  //           "subcity": [
-  //             {
-  //               "id": 3,
-  //               "title": "全部"
-  //             },
-  //             {
-  //               "id": 31,
-  //               "title": "南京市"
-  //             },
-  //             {
-  //               "id": 32,
-  //               "title": "苏州市"
-  //             }
-  //           ]
-  //         }
-  //       ],
-  //     }
-  //   })
-  // },
+
   fetchServiceData: function () {  //获取城市列表
     let _this = this;
     var that = this
@@ -291,42 +129,42 @@ Page({
     }
     console.log(d.showfilterindex);
   },
-  setSortIndex: function (e) { //服务类别一级索引
-    const d = this.data;
-    const dataset = e.currentTarget.dataset;
-    this.setData({
-      sortindex: dataset.sortindex,
-      sortid: dataset.sortid,
-      subsortindex: d.sortindex == dataset.sortindex ? d.subsortindex : 0
-    })
-    console.log('服务类别id：一级--' + this.data.sortid + ',二级--' + this.data.subsortid);
-  },
-  setSubsortIndex: function (e) { //服务类别二级索引
-    const dataset = e.currentTarget.dataset;
-    this.setData({
-      subsortindex: dataset.subsortindex,
-      subsortid: dataset.subsortid,
-    })
-    console.log('服务类别id：一级--' + this.data.sortid + ',二级--' + this.data.subsortid);
-  },
-  setCityIndex: function (e) { //服务城市一级索引
-    const d = this.data;
-    const dataset = e.currentTarget.dataset;
-    this.setData({
-      cityindex: dataset.cityindex,
-      cityid: dataset.cityid,
-      subcityindex: d.cityindex == dataset.cityindex ? d.subcityindex : 0
-    })
-    console.log('服务城市id：一级--' + this.data.cityid + ',二级--' + this.data.subcityid);
-  },
-  setSubcityIndex: function (e) { //服务城市二级索引
-    const dataset = e.currentTarget.dataset;
-    this.setData({
-      subcityindex: dataset.subcityindex,
-      subcityid: dataset.subcityid,
-    })
-    console.log('服务城市id：一级--' + this.data.cityid + ',二级--' + this.data.subcityid);
-  },
+  // setSortIndex: function (e) { //服务类别一级索引
+  //   const d = this.data;
+  //   const dataset = e.currentTarget.dataset;
+  //   this.setData({
+  //     sortindex: dataset.sortindex,
+  //     sortid: dataset.sortid,
+  //     subsortindex: d.sortindex == dataset.sortindex ? d.subsortindex : 0
+  //   })
+  //   console.log('服务类别id：一级--' + this.data.sortid + ',二级--' + this.data.subsortid);
+  // },
+  // setSubsortIndex: function (e) { //服务类别二级索引
+  //   const dataset = e.currentTarget.dataset;
+  //   this.setData({
+  //     subsortindex: dataset.subsortindex,
+  //     subsortid: dataset.subsortid,
+  //   })
+  //   console.log('服务类别id：一级--' + this.data.sortid + ',二级--' + this.data.subsortid);
+  // },
+  // setCityIndex: function (e) { //服务城市一级索引
+  //   const d = this.data;
+  //   const dataset = e.currentTarget.dataset;
+  //   this.setData({
+  //     cityindex: dataset.cityindex,
+  //     cityid: dataset.cityid,
+  //     subcityindex: d.cityindex == dataset.cityindex ? d.subcityindex : 0
+  //   })
+  //   console.log('服务城市id：一级--' + this.data.cityid + ',二级--' + this.data.subcityid);
+  // },
+  // setSubcityIndex: function (e) { //服务城市二级索引
+  //   const dataset = e.currentTarget.dataset;
+  //   this.setData({
+  //     subcityindex: dataset.subcityindex,
+  //     subcityid: dataset.subcityid,
+  //   })
+  //   console.log('服务城市id：一级--' + this.data.cityid + ',二级--' + this.data.subcityid);
+  // },
   hideFilter: function () { //关闭筛选面板
     this.setData({
       showfilter: false,

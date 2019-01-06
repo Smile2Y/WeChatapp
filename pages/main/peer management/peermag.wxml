@@ -2,7 +2,7 @@
   <form bindsubmit='formSubmit' class='form'>
     <view class="input-list">
       <view class="input-item">
-        <text class="input-item-label">学生学号</text>
+        <text class="input-item-label">评价人工号</text>
         <view class="input-item-content">
           <input name="No" type="idcard" placeholder="请输入您的学号或工号" maxlength="10" bindinput="inputNo" value="{{No}}"></input>
         </view>
@@ -23,7 +23,7 @@
 
 
     <view class="btn-submit">
-      <navigator class="index-menu-item" url="excel input/excelin?courseId={{id}}&courseName={{courseName}}&userType=0">
+      <navigator class="index-menu-item" url="excel input/excelin?courseId={{id}}&courseName={{courseName}}&userType=1">
         <button class="btn-block btn-orange">
           Excel表导入</button>
       </navigator>

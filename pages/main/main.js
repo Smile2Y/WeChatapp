@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-id:""
+    id:"",
+    courseName:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.id=options.id
+    this.id=options.id,
+    this.courseName=options.courseName
+    this.setData({
+      id:options.id,
+      courseName:options.courseName
+    })
+    console.log(this.id)
+    console.log(this.courseName)
     // this.setData({
     //   id:id
     // })
@@ -84,10 +92,5 @@ id:""
         url: '/pages/main/teaching calendar/teachingcald?id=' + this.data.id,
       })
     }
-    // if(id==='studentmag'){
-    //   wx.navigateTo({
-    //     url: '/pages/main/student management/studentmag',
-    //   })
-    // }
 }
 })

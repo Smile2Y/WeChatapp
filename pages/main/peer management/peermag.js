@@ -5,22 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    No:"",
-    Tel:"",
-    Type:0,
-    id:"",
-    courseName:""
+    No: "",
+    Tel: "",
+    Type: 0,
+    id: "",
+    courseName: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.id=options.id
-    this.courseName=options.courseName
+    this.id = options.id
+    this.courseName = options.courseName
     this.setData({
-      id:options.id,
-      courseName:options.courseName
+      id: options.id,
+      courseName: options.courseName
     })
     console.log(this.id)
     console.log(this.courseName)
@@ -33,7 +33,7 @@ Page({
   },
   inputTel: function (e) {
     this.setData({
-      Tel:e.detail.value
+      Tel: e.detail.value
     })
   },
 
@@ -69,9 +69,9 @@ Page({
         //method: 'user/register',
         userNo: e.detail.value.No,
         userTel: e.detail.value.Tel,
-        userType:0,
-        courseId:that.data.id,
-        courseName:that.data.courseName
+        userType: 1,
+        courseId: that.data.id,
+        courseName: that.data.courseName
       },
       success: function (res) {
 
