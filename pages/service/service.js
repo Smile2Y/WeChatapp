@@ -19,7 +19,7 @@ Page({
   },
   onLoad: function () { //加载数据渲染页面
     this.fetchServiceData();
-    this.fetchFilterData();
+    //this.fetchFilterData();
 
     var that = this
     // this.getmsg(0, that.data.counter)
@@ -74,7 +74,7 @@ Page({
       // header: { 'Content-Type': 'json' },
       method: "POST",
       success: function (res) {
-        console.log(res.data)
+        //console.log(res.data)
         for (var i = (page - 1) * perpage; i < page * perpage; i++) {
           newlist.push({
             "id": res.data.data[i].id,

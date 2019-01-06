@@ -6,9 +6,8 @@
       </view>
       <view class="service-text">
         <view class="service-tite">{{items.courseName}}</view>
-        <view class="service-tite">{{items.tag}}</view>
         <view class="service-tags">
-          <text>{{items.courseName}}</text>
+          <text>{{items.courseMajor}}</text>
         </view>
         <text class="service-city">授课教师：{{items.courseTeacherName}}</text>
       </view>
