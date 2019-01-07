@@ -1,0 +1,252 @@
+.question-text{
+	padding: 20rpx;
+	text-align: center;
+}
+.question-text text{
+	display: block;
+	color: #888;
+	font-size: 28rpx;
+}
+.question-text view{
+	font-size: 48rpx;
+	color: #f7982a;
+}
+.footer-tab{
+	display: flex;
+	width: 100%;
+	border-top: 1rpx solid #ddd;
+}
+.footer-tab .footer-tab-item{
+	flex: 1;
+	text-align: center;
+}
+
+.footer-tab-widthicon image{
+	width: 44rpx;
+	height: 44rpx;
+	display: block;
+	margin: 10rpx auto 0;
+}
+.footer-tab-item text{
+	font-size: 24rpx;
+	color: #888;
+}
+.footer-tab-item.active text{
+	color: #f7982a;
+}
+.tab{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.tab-nav{
+	height: 80rpx;
+	background: #fff;
+	border-bottom: 1rpx solid #ddd;
+	display: flex;
+	line-height: 79rpx;
+	position: relative;
+}
+.tab-nav text{
+	display: block;
+	flex: 1;
+	text-align: center;
+	width: 25%;
+}
+.tab-nav text.active{
+	color: #f7982a;
+}
+.tab-line{
+	position: absolute;
+	left: 0;
+	bottom: -1rpx;
+	height: 4rpx;
+	background: #f7982a;
+	transition: all 0.3s;
+}
+.tab-content{
+	flex: 1;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.question-list{
+	padding: 20rpx;
+}
+.question-item{
+	background: #fff;
+	margin-bottom: 20rpx;
+	border-bottom: 1rpx solid #ddd;
+}
+.question-item-q{
+	padding: 20rpx;
+	background: #cecece;
+	padding-left: 80rpx;
+	padding-right: 70rpx;
+	position: relative;
+	line-height: 1.2;
+	color: #fff;
+}
+.question-item-q:before,
+.question-item-a:before{
+	content: 'Q';
+	display: block;
+	width: 50rpx;
+	height: 50rpx;
+	border-radius: 50%;
+	background: #f97c29;
+	font-size: 34rpx;
+	text-align: center;
+	line-height: 50rpx;
+	position: absolute;
+	left: 20rpx;
+	top: 14rpx;
+}
+.question-item-q:after{
+	content: '';
+	display: block;
+	width: 40rpx;
+	height: 50rpx;
+	background: url('../../images/downwhite.png') no-repeat 50% 50% / 100% auto;
+	position: absolute;
+	right: 20rpx;
+	top: 14rpx;
+}
+.question-item-a{
+	padding: 0 20rpx;
+	padding-left: 80rpx;
+	position: relative;
+	line-height: 1.4;
+	color: #666;
+}
+.question-item-a.active{
+	background: #f7982a;
+}
+.question-item-a:before{
+	content: 'A';
+	background: #f7982a;
+	color: #fff;
+	top: 0;
+}
+.question-item .question-item-a{
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	margin: 20rpx 0;
+}
+.question-item.active .question-item-q{
+	background: #f97c29;
+}
+.question-item.active .question-item-q:after{
+	background: url('../../images/upwhite.png') no-repeat 50% 50% / 100% auto;
+}
+.question-item.active .question-item-a{
+	-webkit-line-clamp: inherit;
+}
+
+
+.multiple-select{
+	padding: 20rpx;
+	display: flex;
+	flex-wrap: wrap;
+}
+.multiple-select view{
+	flex: 0 0 25%;
+	max-width: 25%;
+	padding: 10rpx;
+	box-sizing: border-box;
+}
+.multiple-select text{
+	display: block;
+	border: 1rpx solid #ddd;
+	line-height: 66rpx;
+	color: #666;
+	font-size: 28rpx;
+	text-align: center;
+	border-radius: 4rpx;
+}
+.multiple-select text.active{
+	background: #f7982a;
+	color: #fff;
+	border-color: #f7982a;
+}
+
+.comment1-description{
+    margin-top: 15rpx;
+    display: block;
+    line-height: 80rpx;
+    text-align: center;
+    border-top: 1rpx solid #ddd;
+    border-bottom: 1rpx solid #ddd;
+    background-color: #fff;
+}
+.comment1-description1{
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333333;
+    margin-left: 22rpx;
+}
+.star-pos {
+    /* position: absolute; */
+    right: 20rpx;
+    margin-top: 20rpx;
+    margin-right: 40rpx;
+}
+.comment1-description .star-pos .hideStar{
+    /* z-index: 2; */
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545893091408&di=244e375eec28e2530f0caffa00fbd5b5&imgtype=0&src=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_259934.png");
+    width: 83rpx;
+    height: 43rpx;
+    background-size: 43rpx 43rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+}
+
+.starsM{
+    /* z-index: 1; */
+    width: 83rpx;
+    height: 43rpx;
+    background-image: url("http://www.pngpix.com/wp-content/uploads/2016/11/PNGPIX-COM-Star-Vector-PNG-Transparent-Image-500x481.png");
+    background-size: 43rpx 43rpx;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+.checkbox {
+  display: inline-block;
+  padding: 10rpx;
+  background: #eee;
+  margin: 10rpx;
+  border-radius: 10rpx;
+}
+ 
+.checkedActive {
+  background: red;
+  color: #fff;
+}
+
+.group-content{
+  display: block;
+  margin: auto auto;
+  align-items: center;
+  /* width: 300px; */
+  height: auto;
+  background-color: #fff;
+}
+
+.group-body1{
+  display: block;
+  padding-left: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  min-width: max-content;
+  /* padding-left: 30rpx;
+  padding-right: 30rpx; */
+  border-bottom: 1rpx solid #ddd;
+  height: auto;
+  position: relative;
+}

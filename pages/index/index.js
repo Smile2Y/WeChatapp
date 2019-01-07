@@ -34,7 +34,7 @@ Page({
         {
           'icon':'./../../images/icon_05.png',
           'text':'学生评价',
-          'url':'conference/conference'
+          'url':'service_s/service_s'
         },
         {
           'icon':'./../../images/icon_07.png',

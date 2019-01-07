@@ -16,22 +16,22 @@ Page({
     checitems: [],
     // selected:null,
     selectedid: null,
-    content:'',
+    content: '',
     radio: [],
-    userRadio:[],
-    com:'',
+    userRadio: [],
+    com: '',
 
     flag2: 2,
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.courseId = options.courseId;
     this.courseName = options.courseName;
-    this.courseType=options.courseType
+    this.courseType = options.courseType
     this.setData({
       courseId: options.courseId,
       courseName: options.courseName,
-      courseType:options.courseType
+      courseType: options.courseType
     })
     var that = this
     wx.request({
@@ -41,10 +41,10 @@ Page({
       },
       method: "POST",
       data: {
-        normType: 1,
+        normType: 0,
         courseId: that.data.courseId
       },
-      success: function(res) {
+      success: function (res) {
         var normList = []
         for (var i = 0; i < res.data.data.length; i++) {
           var norm = {
@@ -64,7 +64,7 @@ Page({
 
   },
   //单选
-  getradio: function(e) {
+  getradio: function (e) {
     let index = e.currentTarget.dataset.id;
     let radio = this.data.radio;
     for (let i = 0; i < radio.length; i++) {
@@ -99,9 +99,9 @@ Page({
   //   }
   // },
 
-  bindinput:function(e){
+  bindinput: function (e) {
     this.setData({
-      content:e.detail.value
+      content: e.detail.value
     })
 
   },
@@ -125,7 +125,7 @@ Page({
     })
   },
 
-  formSubmit: function(e) {
+  formSubmit: function (e) {
     var that = this;
     var arr = that.data.userRadio;
     for (var i = 0, len = arr.length; i < len; i++) {
@@ -133,7 +133,7 @@ Page({
       that.data.com = that.data.com + ',' + arr[i].value;//赋结新值
     }
     that.setData({
-      com:that.data.com
+      com: that.data.com
     })
     //console.log(that.data.content)
     //console.log(that.data.com)
@@ -162,8 +162,8 @@ Page({
           duration: 1500
         })
       }
-      
-      })
+
+    })
     // wx.request({
     //   url: 'http://shx.nat300.top/api/assess/addAssess',
     //   // method:Post,
@@ -202,32 +202,32 @@ Page({
     // })
   },
 
-  changeColor11: function() {
+  changeColor11: function () {
     var that = this;
     that.setData({
       flag2: 1
     });
     console.log(that.flag2)
   },
-  changeColor12: function() {
+  changeColor12: function () {
     var that = this;
     that.setData({
       flag2: 2
     });
   },
-  changeColor13: function() {
+  changeColor13: function () {
     var that = this;
     that.setData({
       flag2: 3
     });
   },
-  changeColor14: function() {
+  changeColor14: function () {
     var that = this;
     that.setData({
       flag2: 4
     });
   },
-  changeColor15: function() {
+  changeColor15: function () {
     var that = this;
     that.setData({
       flag2: 5
@@ -298,7 +298,7 @@ Page({
   // },
   // questionSubmit: function() {},
 
-  chooseicon: function(e) {
+  chooseicon: function (e) {
 
     var strnumber = e.target.dataset.id;
     var _obj = {};
