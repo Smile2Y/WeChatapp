@@ -11,8 +11,8 @@
 	</view>
 <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
 		<view class="service-list">
-			<navigator class="service-item" wx:for="{{courseList}}" wx:key="{{item.id}}">
-				<view class="service-text">
+			<navigator url='/pages/main/course management/coursemag/detial management/detial management?id={{item.id}}' class="service-item" wx:for="{{courseList}}" wx:key="{{item.id}}">
+				<view class="service-text" id='{{}}'>
 					<view class="service-tite">{{item.courseTopic}}</view>
 					<!-- <view class="service-tags"> -->
           <view>						

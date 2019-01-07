@@ -7,6 +7,7 @@ Page({
   data: {
     id: "",
     courseList: [],
+    courseid:""
   },
 
   /**
@@ -28,7 +29,6 @@ Page({
             courseList: e.data.data
           })
         }
-        // console.log(that.data.course)
       }
     })
   },
@@ -86,7 +86,7 @@ Page({
 
 
 
-  enterTo: function () {
+  enterTo: function (e) {
     wx.navigateTo({
       url: '/pages/main/course management/coursemag',
     })

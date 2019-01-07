@@ -55,7 +55,7 @@
 </view>
 
 <view id='tableft' class='tab-left {{currentTab2 === 0 ? "tab-active":"tabnull"}}' bindtap='switchTab2'>
-  课程开放时间设定
+  课堂开放时间设定
   <view class=' {{currentTab2 === 0 ? "group-body":"tabnull"}}'>
 
     <view class=' {{currentTab2 === 0 ? "item-container":"tabnull"}}'>

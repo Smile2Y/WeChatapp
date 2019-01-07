@@ -92,5 +92,43 @@ Page({
         url: '/pages/main/teaching calendar/teachingcald?id=' + this.data.id,
       })
     }
-}
+},
+  applySubmit: function () {
+    var _this=this
+    wx.showModal({
+      title: '提示',
+      content: '是否要将该课程归档？',
+      success:function(res){
+
+        if(res.confirm){
+          wx.request({
+            url: 'http://shx.nat300.top/api/course/unactiveCourse',
+            method: "POST",
+            data: {
+              "id": _this.data.id
+            },
+            success: function (e) {
+              wx.showToast({
+                title: '归档成功',
+                icon: 'success',
+                duration: 1500
+              })
+              // setTimeout(function () {
+              //   wx.redirectTo({
+              //     url: '../../main/teaching calendar/teachingcald',
+              //   })
+              // }, 1500)
+            },
+            fail: function () {
+              console.log("失败")
+            }
+          })
+        }
+        
+      }
+    })
+
+   
+  }
+
 })

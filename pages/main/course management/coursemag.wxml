@@ -61,9 +61,9 @@
 		<button class="btn-block btn-orange" bindtap="" type="primary" form-type="submit">提交</button>
 	</view>
 
-  	<view class="btn-submit">
+  	<!-- <view class="btn-submit">
 		<button class="btn-block btn-orange" bindtap="applySubmit" type="primary" >课程归档</button>
-	</view>
+	</view> -->
 </form>
 
 </view>

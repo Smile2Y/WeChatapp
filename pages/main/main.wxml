@@ -93,4 +93,17 @@
     </view>
     </view>
   </navigator>
+
+
+      <view class='backgrounds' bindtap='applySubmit'>
+      <view class='items'>
+      <view class='imagestyle'><image src='/image/archive.png'></image></view>
+      <view style='width:240px'>
+        <text>课程归档</text>
+      </view>
+      <view class=''>
+        <!-- <image src='/image/toright.png'></image> -->
+      </view>
+    </view>
+    </view>
 </view>

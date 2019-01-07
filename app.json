@@ -1,6 +1,5 @@
 {
-  "pages":[
-    
+  "pages": [
     "pages/index/index",
     "pages/space/space",
     "pages/spacereserve/spacereserve",
@@ -21,6 +20,7 @@
     "pages/main/teaching calendar/teachingcald",
     "pages/main/teaching calendar/courseadditions/courseadds",
     "pages/main/main",
+    "pages/test_page/test_page",
     "pages/main/course management/coursemag",
     "pages/main/course management/courseaddtion/courseadd",
     "pages/main/course management/coursemag/courseCalendar",
@@ -29,40 +29,48 @@
     "pages/main/student management/studentmag",
     "pages/main/student management/excel input/excelin",
     "pages/main/peer management/peermag",
-    "pages/main/peer management/excel input/excelin"  
-
+    "pages/main/peer management/excel input/excelin",
+    "pages/main/evaluate analyze/evaluatelyzeChild/analyzechild",
+    "pages/main/evaluate openOrclose/evaluateOoC",
+    "pages/main/course management/coursemag/detial management/detial management"
   ],
-  "window":{
-    "backgroundTextStyle":"white",
+  "window": {
+    "backgroundTextStyle": "white",
     "navigationBarBackgroundColor": "#f7982a",
     "navigationBarTitleText": "课程教评管理系统",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "主页",
-      "iconPath":"images/xihuan.png",
-      "selectedIconPath":"images/xihuanfill.png"
-    }, {
-      "pagePath": "pages/activity/activity",
-      "text": "见闻",
-      "iconPath":"images/biaoxing.png",
-      "selectedIconPath":"images/biaoxingfill.png"
-    }, {
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath":"images/yonghu.png",
-      "selectedIconPath":"images/yonghufill.png"
-    }],
-    "color":"#333",
-    "selectedColor":"#f7982a",
-    "backgroundColor":"#f6f6f6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/xihuan.png",
+        "selectedIconPath": "images/xihuanfill.png"
+      },
+      {
+      
+        "pagePath": "pages/test_page/test_page",
+        "text": "见闻",
+        "iconPath": "images/biaoxing.png",
+        "selectedIconPath": "images/biaoxingfill.png"
+      },
+      {
+       
+        "pagePath": "pages/test_page/test_page",
+        "text": "我的",
+        "iconPath": "images/yonghu.png",
+        "selectedIconPath": "images/yonghufill.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#f7982a",
+    "backgroundColor": "#f6f6f6",
     "borderStyle": "white"
   },
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000,
-    "uploadFile":   100000000
+    "uploadFile": 100000000
   }
 }

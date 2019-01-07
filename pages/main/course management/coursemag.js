@@ -16,24 +16,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.id=options.id;
-    console.log(this.data.id)
-var that=this
-wx.request({
-  url: 'http://shx.nat300.top/api/course/courseCalendar',
-  method:"POST",
-  data:{
-    "id": this.data.id,
-  },
-  success: function(e){
-    if(e.data.data[0]!=null){
-      that.setData({
-        course: e.data.data[0]
-      })
-    }
-// console.log(that.data.course)
-  }
-})
+    // this.data.id=options.id;
+    // console.log(this.data.id)
+// var that=this
+// wx.request({
+//   url: 'http://shx.nat300.top/api/course/courseCalendar',
+//   method:"POST",
+//   data:{
+//     "id": this.data.id,
+//   },
+//   success: function(e){
+//     if(e.data.data[0]!=null){
+//       that.setData({
+//         course: e.data.data[0]
+//       })
+//     }
+//   }
+// })
 
   },
 
