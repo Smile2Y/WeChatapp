@@ -23,7 +23,6 @@ Page({
         "id": this.data.id,
       },
       success: function (e) {
-        console.log(e)
         if (e.data.data[0] != null) {
           that.setData({
             courseList: e.data.data
