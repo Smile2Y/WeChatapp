@@ -1,0 +1,6 @@
+<view class="page">
+<view wx:for="{{radio}}"  class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio'>
+  <text>{{item.value}}</text>  
+</view>
+
+</view>

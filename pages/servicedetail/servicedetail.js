@@ -2,9 +2,11 @@ Page({
   data: {
   },
   onLoad: function (options) {
-    this.id = options.id;
+    this.courseId = options.courseId;
+    this.courseName=options.courseName;
     this.setData({
-      id:options.id
+      courseId:options.courseId,
+      courseName:options.courseName
     })
     this.fetchData();
 
@@ -18,7 +20,7 @@ Page({
       header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: "POST",
       data: {
-        id: that.data.id
+        id: that.data.courseId
         //console.log(that.data.id)
       },
       success: function (res) {

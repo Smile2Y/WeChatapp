@@ -19,7 +19,7 @@
     </view>
   </view>
   <view class="container-footer">
-    <navigator class="container-footer" url='../peer_evaluation/peer_evaluation'>
+    <navigator class="container-footer" url='../peer_evaluation/peer_evaluation?courseId={{courseId}}&courseName={{courseName}}'>
       <button class="btn-orange btn-block">课程评价</button>
     </navigator>
   </view>

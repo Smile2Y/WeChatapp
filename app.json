@@ -27,7 +27,8 @@
     "pages/main/student management/studentmag",
     "pages/main/student management/excel input/excelin",
     "pages/main/peer management/peermag",
-    "pages/main/peer management/excel input/excelin"
+    "pages/main/peer management/excel input/excelin",
+    "pages/test_page/test_page"
   ],
   "window":{
     "backgroundTextStyle":"white",

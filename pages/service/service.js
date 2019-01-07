@@ -69,7 +69,7 @@ Page({
     // newlist1=this.data.coursedata.value;
 
     wx.request({
-      url: 'http://shx.nat300.top/api/course/activeCourse',
+      url: 'http://shx.nat300.top/api/course/getStudentCourse',
       // method:Post,
       // header: { 'Content-Type': 'json' },
       method: "POST",
@@ -77,7 +77,7 @@ Page({
         //console.log(res.data)
         for (var i = (page - 1) * perpage; i < page * perpage; i++) {
           newlist.push({
-            "id": res.data.data[i].id,
+            "courseId": res.data.data[i].id,
             "courseName": res.data.data[i].courseName,
             "teacher": res.data.data[i].courseTeacherName,
             "tag": res.data.data[i].courseMajor,

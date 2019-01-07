@@ -3,47 +3,205 @@ var app = getApp()
 var count = 0;
 Page({
   data: {
-    showtab:0,  //顶部选项卡索引
-    showtabtype:'', //选中类型
-    showfootertab:0,  //底部标签页索引
-    tabnav:{},  //顶部选项卡数据
-    questionsall:[],  //所有问题
-    questions:[], //问题列表
-    showquestionindex:null, //查看问题索引,
-    uploadimgs:[], //上传图片列表
-    editable: false ,//是否可编辑
+    showtab: 0, //顶部选项卡索引
+    showtabtype: '', //选中类型
+    showfootertab: 0, //底部标签页索引
+    tabnav: {}, //顶部选项卡数据
+    questionsall: [], //所有问题
+    questions: [], //问题列表
+    showquestionindex: null, //查看问题索引,
+    uploadimgs: [], //上传图片列表
+    editable: false, //是否可编辑
     checitems: [],
     // selected:null,
     selectedid: null,
+    //value:[],
 
-    flag:2.5,
+    radio: [{
+        name:"fsjk",value: '',
+    }],
+
+    flag2: 2.5,
   },
 
-  changeColor11: function () {
+  onLoad: function(options) {
+    this.courseId = options.courseId;
+    this.courseName = options.courseName;
+    this.setData({
+      courseId: options.courseId,
+      courseName: options.courseName
+    })
+    var that = this
+    wx.request({
+      url: 'http://shx.nat300.top/api/assess/getNorm',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      data: {
+        normType: 1,
+        courseId: that.data.courseId
+      },
+      success: function(res) {
+        console.log(res)
+        console.log(this.data.radio[1].value)
+        //this.setData({
+          console.log(res.data.data[1].normName)
+        this.data.radio[1].value = res.data.data[1].normName
+        console.log(this.data.radio[1].value)
+      //})
+      }
+
+    })
+    console.log(this.value)
+
+  },
+  //单选
+  getradio: function(e) {
+    let index = e.currentTarget.dataset.id;
+    let radio = this.data.radio;
+    for (let i = 0; i < radio.length; i++) {
+      //this.data.radio[i].checked = false;
+    }
+    if (radio[index].checked) {
+      this.data.radio[index].checked = false;
+    } else {
+      this.data.radio[index].checked = true;
+    }
+    let userRadio = radio.filter((item, index) => {
+      return item.checked == true;
+    })
+    this.setData({
+      radio: this.data.radio
+    })
+    console.log(userRadio)
+  },
+
+  formSubmit: function(e) {
+    var that = this;
+    console.log(that.data.id)
+    wx.request({
+      url: 'http://shx.nat300.top/api/assess/addAssess',
+      // method:Post,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      method: "POST",
+      data: {
+        courseType: 1,
+        courseId: that.data.courseId,
+        courseName: that.data.courseName,
+        rateLevel: flag,
+        rateNorm: demoData,
+        rateAddtional: demoData,
+      },
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          items: res.data.data,
+          imgurl: "http://shx.nat300.top" + res.data.data.coursePic,
+        })
+      }
+    })
+  },
+
+  // getradio2: function (e) {
+  //   let index = e.currentTarget.dataset.id;
+  //   let radio2 = this.data.radio2;
+  //   for (let i = 0; i < radio2.length; i++) {
+  //     this.data.radio2[i].checked = false;
+  //   }
+  //   if (radio2[index].checked) {
+  //     this.data.radio2[index].checked = false;
+  //   } else {
+  //     this.data.radio2[index].checked = true;
+  //   }
+  //   let userRadio2 = radio2.filter((item, index) => {
+  //     return item.checked == true;
+  //   })
+  //   this.setData({ radio2: this.data.radio2 })
+  //   console.log(userRadio2)
+  // },
+
+  // getradio3: function (e) {
+  //   let index = e.currentTarget.dataset.id;
+  //   let radio3 = this.data.radio3;
+  //   for (let i = 0; i < radio3.length; i++) {
+  //     this.data.radio3[i].checked = false;
+  //   }
+  //   if (radio3[index].checked) {
+  //     this.data.radio3[index].checked = false;
+  //   } else {
+  //     this.data.radio3[index].checked = true;
+  //   }
+  //   let userRadio3 = radio3.filter((item, index) => {
+  //     return item.checked == true;
+  //   })
+  //   this.setData({ radio3: this.data.radio3 })
+  //   console.log(userRadio3)
+  // },
+
+  // getradio4: function (e) {
+  //   let index = e.currentTarget.dataset.id;
+  //   let radio4 = this.data.radio4;
+  //   for (let i = 0; i < radio4.length; i++) {
+  //     this.data.radio4[i].checked = false;
+  //   }
+  //   if (radio4[index].checked) {
+  //     this.data.radio4[index].checked = false;
+  //   } else {
+  //     this.data.radio4[index].checked = true;
+  //   }
+  //   let userRadio4 = radio4.filter((item, index) => {
+  //     return item.checked == true;
+  //   })
+  //   this.setData({ radio4: this.data.radio4 })
+  //   console.log(userRadio4)
+  // },
+
+  // getradio5: function (e) {
+  //   let index = e.currentTarget.dataset.id;
+  //   let radio5 = this.data.radio5;
+  //   for (let i = 0; i < radio5.length; i++) {
+  //     this.data.radio5[i].checked = false;
+  //   }
+  //   if (radio5[index].checked) {
+  //     this.data.radio5[index].checked = false;
+  //   } else {
+  //     this.data.radio5[index].checked = true;
+  //   }
+  //   let userRadio5 = radio5.filter((item, index) => {
+  //     return item.checked == true;
+  //   })
+  //   this.setData({ radio5: this.data.radio5 })
+  //   console.log(userRadio5)
+  // },
+  changeColor11: function() {
     var that = this;
     that.setData({
       flag2: 1
     });
+    console.log(that.flag2)
   },
-  changeColor12: function () {
+  changeColor12: function() {
     var that = this;
     that.setData({
       flag2: 2
     });
   },
-  changeColor13: function () {
+  changeColor13: function() {
     var that = this;
     that.setData({
       flag2: 3
     });
   },
-  changeColor14: function () {
+  changeColor14: function() {
     var that = this;
     that.setData({
       flag2: 4
     });
   },
-  changeColor15: function () {
+  changeColor15: function() {
     var that = this;
     that.setData({
       flag2: 5
@@ -51,93 +209,68 @@ Page({
   },
 
 
-  onLoad: function () {
-    this.setData({
-      checitems: [
-        {
-          "id": 1,
-          "text": "教学态度认真"
-        },
-        {
-          "id": 2,
-          "text": "教学准备充分"
-        },
-        {
-          "id": 3,
-          "text": "教学过程严谨"
-        },
-        {
-          "id": 4,
-          "text": "教学手段高超"
-        },
-        {
-          "id": 5,
-          "text": "教学效果良好"
-        },
-      ]
-    })
-  },
-  onSelectTag: function (e) {
-    const eid = e.currentTarget.dataset.id;
-    const selected = this.data.selected;
-    this.setData({
-      // selected:selected.indexOf(eid)>-1?selected.filter(i=>i!=eid):selected.concat(eid)
-      selectedid: eid
-    })
-    console.log(this.data.selectedid);
-  },
-  chooseImage:function() {
+
+
+  // onSelectTag: function (e) {
+  //   const eid = e.currentTarget.dataset.id;
+  //   var selected = this.data.selected;
+  //   this.setData({
+  //     //selected:selected.indexOf(eid)>-1?selected.filter(i=>i!=eid):selected.concat(eid),
+  //     selectedid: eid
+  //   })
+  //   console.log(this.data.selectedid);
+  // },
+  chooseImage: function() {
     let _this = this;
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
       itemColor: "#f7982a",
       success: function(res) {
         if (!res.cancel) {
-          if(res.tapIndex == 0){
+          if (res.tapIndex == 0) {
             _this.chooseWxImage('album')
-          }else if(res.tapIndex == 1){
+          } else if (res.tapIndex == 1) {
             _this.chooseWxImage('camera')
           }
         }
       }
     })
   },
-  chooseWxImage:function(type){
+  chooseWxImage: function(type) {
     let _this = this;
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: [type],
-      success: function (res) {
+      success: function(res) {
         _this.setData({
           uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
         })
       }
     })
   },
-  editImage:function(){
+  editImage: function() {
     this.setData({
       editable: !this.data.editable
     })
   },
-  deleteImg:function(e){
+  deleteImg: function(e) {
     console.log(e.currentTarget.dataset.index);
     const imgs = this.data.uploadimgs
-    Array.prototype.remove = function(i){
+    Array.prototype.remove = function(i) {
       const l = this.length;
-      if(l==1){
+      if (l == 1) {
         return []
-      }else if(i>1){
-        return [].concat(this.splice(0,i),this.splice(i+1,l-1))
+      } else if (i > 1) {
+        return [].concat(this.splice(0, i), this.splice(i + 1, l - 1))
       }
     }
     this.setData({
       uploadimgs: imgs.remove(e.currentTarget.dataset.index)
     })
   },
-  questionSubmit:function(){
-  },
+  // questionSubmit: function() {},
 
-  chooseicon: function (e) {
+  chooseicon: function(e) {
 
     var strnumber = e.target.dataset.id;
     var _obj = {};
@@ -148,53 +281,4 @@ Page({
 
   },
 
-
-  // fetchQuestions:function(){  //获取问题列表
-  //   const newquestions = [];
-  //   for (let i = 0; i < 50; i++) {
-  //     newquestions.push({
-  //       "id":i+1,
-  //       "type": util.getRandomArrayElement(["A","B","C","D"]),
-  //       "q":"意外保护服务内容是什么-"+(i+1)+"？",
-  //       "a":"服务名称适用品类服务实施详情服务期限服务生效时间摔碰管修一年笔记本本服务有效期内，如客户的数码摄照产品在正常使用过程中由于不慎将产品坠落、挤压、碰撞，而产生的硬件故障，本服务将免费提供硬件维修或更换，使产品重新恢复正常运行。12个月购机满30天后开始生效摔碰管修两年笔记本、数码相机、摄像机、手机、小数码"
-  //     })
-  //   }
-  //   this.setData({
-  //     questions:newquestions,
-  //     questionsall:newquestions
-  //   })
-  // },
-  // setTab:function(e){ //设置选项卡选中索引
-  //   const edata = e.currentTarget.dataset;
-  //   this.setData({
-  //     showtab: edata.tabindex,
-  //     showtabtype: edata.type,
-  //     questions: !edata.type ? this.data.questionsall:this.data.questionsall.filter(l=>l.type === edata.type),
-  //     showquestionindex: this.data.showtab==edata.tabindex?this.data.showquestionindex:null
-  //   })
-  // },
-  // showTab:function(e){  //切换选项卡
-  //   const eindex = e.currentTarget.dataset.index;
-  //   if(eindex==1&&!this.data.questions){
-  //     console.log("text");
-  //   }
-  //   wx.setNavigationBarTitle({
-  //     title:eindex==1?"常见问题":"问题反馈"
-  //   })
-  //   this.setData({
-  //     showfootertab:eindex
-  //   });
-  // },
-  // foldQuestion:function(e){ //展开收起问题
-  //   const eindex = e.currentTarget.dataset.qindex;
-  //   const oldqindex = this.data.showquestionindex;
-  //   this.setData({
-  //     showquestionindex: eindex===oldqindex?null:eindex
-  //   })
-  // },
-  // callContact: function(e){  //拨打电话
-  //   wx.makePhoneCall({
-  //     phoneNumber: e.currentTarget.dataset.ponenumber
-  //   })
-  // }
 })
