@@ -214,3 +214,39 @@
     background-repeat: no-repeat;
 }
 
+
+.checkbox {
+  display: inline-block;
+  padding: 10rpx;
+  background: #eee;
+  margin: 10rpx;
+  border-radius: 10rpx;
+}
+ 
+.checkedActive {
+  background: red;
+  color: #fff;
+}
+
+.group-content{
+  display: block;
+  margin: auto auto;
+  align-items: center;
+  /* width: 300px; */
+  height: auto;
+  background-color: #fff;
+}
+
+.group-body1{
+  display: block;
+  padding-left: 40rpx;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  min-width: max-content;
+  /* padding-left: 30rpx;
+  padding-right: 30rpx; */
+  border-bottom: 1rpx solid #ddd;
+  height: auto;
+  position: relative;
+}

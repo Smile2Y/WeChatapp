@@ -9,7 +9,8 @@ Page({
     Tel:"",
     Type:0,
     id:"",
-    courseName:""
+    courseName:"",
+    userList:[]
   },
 
   /**
@@ -24,6 +25,37 @@ Page({
     })
     console.log(this.id)
     console.log(this.courseName)
+
+    var that = this
+    wx.request({
+      url: 'http://shx.nat300.top/api/course/getUserLilst',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        "courseId": this.data.id,
+        "userType":0
+      },
+      success: function (e) {
+        console.log(e)
+        if (e.data.code == '0') {
+          console.log("setData")
+          that.setData({
+            userList: e.data.data
+          })
+        }
+        // console.log(this.data.userList)
+
+      },
+      fail:function(error){
+        console.log(error)
+      }
+    })
+
+    console.log("userList")
+    console.log(this.data.userList)
+
   },
 
   inputNo: function (e) {

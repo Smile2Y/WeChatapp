@@ -2,54 +2,33 @@ Page({
   data: {
   },
   onLoad: function (options) {
-    const i = options.id;
-    this.fetchData(i);
-    console.log(id)
+    this.courseId = options.courseId;
+    this.courseName=options.courseName;
+    this.setData({
+      courseId:options.courseId,
+      courseName:options.courseName
+    })
+    this.fetchData();
 
-    
-    //var that=this;
-    // this.setData({
-    //   servicedetail:{
-    //     "id":id,
-    //     "name":courseName,
-    //     "tag":tag,
-    //     "teacher":teacher,
-    //     "imgurl":imgurl
-    //   }
-    // })
-    // wx.setNavigationBarTitle({
-    //   name: this.data.servicedetail.courseName
-    // })
   },
-  // servicedetail(){
-  //   var that =this;
-  //   var obj={};
-  //   obj.id="id";
-  //   obj.courseName="courseName"
-  //   obj.teacher="teacher"
-  //   obj.tag="tag"
-  //   //obj.imgurl="imgurl"
-  //   let servicedetail=that.data.servicedetail;
-  //   servicedetail.push(obj);
-  //   that.setData({servicedetail});
-  //   console.log(that.data.servicedetail);
-
-  // },
-  fetchData:function(i){
+  fetchData:function(){
     var that=this;
+    console.log(that.data.id)
     wx.request({
-      url: 'http://shx.nat300.top/api/course/activeCourse',
+      url: 'http://shx.nat300.top/api/course/getCourse',
       // method:Post,
-      // header: { 'Content-Type': 'json' },
+      header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: "POST",
+      data: {
+        id: that.data.courseId
+        //console.log(that.data.id)
+      },
       success: function (res) {
         console.log(res)
         that.setData({
-          items:res.data.data[i],
-          imgurl: "http://shx.nat300.top" + res.data.data[i].coursePic
+          items:res.data.data,
+          imgurl: "http://shx.nat300.top" + res.data.data.coursePic,
         })
-
-
       }
       })
     }

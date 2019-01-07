@@ -1,30 +1,36 @@
-// pages/main/main.js
+// pages/main/course management/coursemag/courseCalendar.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    id:"",
-    courseName:""
+    id: "",
+    courseList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.id=options.id,
-    this.courseName=options.courseName
-    this.setData({
-      id:options.id,
-      courseName:options.courseName
+    this.data.id = options.id;
+    var that = this
+
+    wx.request({
+      url: 'http://shx.nat300.top/api/course/courseCalendar',
+      method: "POST",
+      data: {
+        "id": this.data.id,
+      },
+      success: function (e) {
+        if (e.data.data[0] != null) {
+          that.setData({
+            courseList: e.data.data
+          })
+        }
+        // console.log(that.data.course)
+      }
     })
-    console.log(this.id)
-    console.log(this.courseName)
-    // this.setData({
-    //   id:id
-    // })
-    
   },
 
   /**
@@ -75,22 +81,14 @@ Page({
   onShareAppMessage: function () {
 
   },
-  switchiTo :function(e){
-    let id = e.currentTarget.id
-    if (id ==='coursemag'){
-      wx.navigateTo({
-        url: '/pages/main/course management/coursemag/courseCalendar?id='+this.data.id,
-      })
-    }
-    if (id === 'evaluatemag'){
-      wx.navigateTo({
-        url: '/pages/main/evaluate management/evaluatemag?id=' + this.data.id,
-      })
-    }
-    if (id === 'teachingcal') {
-      wx.navigateTo({
-        url: '/pages/main/teaching calendar/teachingcald?id=' + this.data.id,
-      })
-    }
-}
+
+
+
+
+
+  enterTo: function () {
+    wx.navigateTo({
+      url: '/pages/main/course management/coursemag',
+    })
+  }
 })

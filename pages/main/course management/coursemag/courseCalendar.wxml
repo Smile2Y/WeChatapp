@@ -1,0 +1,34 @@
+<!--pages/main/course management/coursemag/courseCalendar.wxml-->
+<view>
+	<view class="search-flex {{scrolltop>200?'tophide':''}}">
+		<!-- <view class="search-bar">
+			<input type="text" maxlength="12" placeholder="请输入关键字查询" bindinput="inputSearch"></input>
+			<button class="search-btn" bindtap="submitSearch" wx:if="{{showsearch}}">搜索</button>
+		</view> -->
+		<!-- <button class="search-extra-btn">课程搜索</button> -->
+		<button class="search-extra-btn" bindtap='enterTo'>添加教学日历</button>
+
+	</view>
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+		<view class="service-list">
+			<navigator class="service-item" wx:for="{{courseList}}" wx:key="{{item.id}}">
+				<view class="service-text">
+					<view class="service-tite">{{item.courseTopic}}</view>
+					<!-- <view class="service-tags"> -->
+          <view>						
+            <text>课程时间：{{item.courseTime}}</text>
+          </view>
+          <view>
+					<text class="service-city">内容简介：{{item.courseContent}}</text>
+          </view>
+          <view>
+          <text class="service-city">知识点：{{item.courseKnowledge}}</text>
+					</view>
+          <text class="service-city">能力点：{{item.courseAbility}}</text>
+
+				</view>
+			</navigator>
+		</view>
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>

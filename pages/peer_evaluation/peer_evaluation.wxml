@@ -1,44 +1,91 @@
 <view class="container">
-	<view class="container-body container-gray" style="display:{{showfootertab==0?'block':'none'}}">
-		<view class="group">
-			<view class="group-header">课程评价</view>
-			<view class="group-body">
-				<textarea placeholder="请输入对本课程的评价，可输入1000字" maxlength="1000"></textarea>
-			</view>
+  <form bindsubmit='formSubmit' class='form'>
+  <view class="container-body container-gray" style="display:{{showfootertab==0?'block':'none'}}">
+    <view class="group">
+      <view class="group-header">课程评价</view>
+      <view class="group-body">
+        <textarea placeholder="请输入对本课程的评价，可输入1000字" maxlength="1000"></textarea>
+      </view>
 
-    <view class="group-body">
+
+      <view class='group-body1'>
+          <view wx:for="{{radio}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio'>
+            <text>{{item.value}}</text>
+          </view>
+      </view>
+
+      <!-- <view class='group-content'>
+        <view class='group-body1'>
+          <text>教学态度：</text>
+          <view wx:for="{{radio1}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio1'>
+            <text>{{item.value}}</text>
+          </view>
+        </view>
+        <view class='group-body1'>
+          <text>教学准备：</text>
+          <view wx:for="{{radio2}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio2'>
+            <text>{{item.value}}</text>
+          </view>
+        </view>
+        <view class='group-body1'>
+          <text>教学过程：</text>
+          <view wx:for="{{radio3}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio3'>
+            <text>{{item.value}}</text>
+          </view>
+        </view>
+        <view class='group-body1'>
+          <text>教学手段：</text>
+          <view wx:for="{{radio4}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio4'>
+            <text>{{item.value}}</text>
+          </view>
+        </view>
+        <view class='group-body1'>
+          <text>教学效果：</text>
+          <view wx:for="{{radio5}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio5'>
+            <text>{{item.value}}</text>
+          </view>
+        </view> -->
+
+
+
+
+
+
+
+
+
+      <!-- <view class="group-body">
 			<view class="multiple-select">
 				<view wx:for="{{checitems}}" wx:key="{{item.id}}">
 					<text data-id="{{item.id}}"bindtap="onSelectTag" class="{{selectedid==item.id?'active':''}}">{{item.text}}</text>
 				</view>
 			</view>
-		</view>
+		</view> -->
 
-<!--星星评价-->
-    <view class="comment1-description" style="display:flex;flex-direction:row;">
-        <view class="comment1-description1">描述相符</view>
-        <view  class="star-pos" style="display:flex;flex-direction:row;">
-            <view class="starsM  {{flag2>=1? '': 'hideStar'}}"  bindtap="changeColor11"></view>
-            <view class="starsM  {{flag2>=2? '': 'hideStar'}}"  bindtap="changeColor12"></view>
-            <view class="starsM  {{flag2>=3? '': 'hideStar'}}"  bindtap="changeColor13"></view>
-            <view class="starsM  {{flag2>=4? '': 'hideStar'}}"  bindtap="changeColor14"></view>
-            <view class="starsM  {{flag2>=5? '': 'hideStar'}}"  bindtap="changeColor15"></view>
+      <!--星星评价-->
+      <view class="comment1-description" style="display:flex;flex-direction:row;">
+        <view class="comment1-description1">课程评级：</view>
+        <view class="star-pos" style="display:flex;flex-direction:row;">
+          <view class="starsM  {{flag2>=1? '': 'hideStar'}}" bindtap="changeColor11"></view>
+          <view class="starsM  {{flag2>=2? '': 'hideStar'}}" bindtap="changeColor12"></view>
+          <view class="starsM  {{flag2>=3? '': 'hideStar'}}" bindtap="changeColor13"></view>
+          <view class="starsM  {{flag2>=4? '': 'hideStar'}}" bindtap="changeColor14"></view>
+          <view class="starsM  {{flag2>=5? '': 'hideStar'}}" bindtap="changeColor15"></view>
         </view>
-    </view>
+      </view>
 
 
-
-			<view class="group-header">上传图片</view>
-			<view class="group-body">
-				<view class="img-upload">
-					<view class="img-add" bindtap="chooseImage"></view>
-					<view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
-						<icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
-						<image src="{{item}}" mode="aspectFill"></image>
-					</view>
-				</view>
-			</view>
-			<view class="group-header">评价人信息</view>
+      <view class="group-header">上传图片</view>
+      <view class="group-body">
+        <view class="img-upload">
+          <view class="img-add" bindtap="chooseImage"></view>
+          <view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+            <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}" />
+            <image src="{{item}}" mode="aspectFill"></image>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="group-header">评价人信息</view>
 			<view class="group-body">
 				<view class="input-list">
 					<view class="input-item">
@@ -54,10 +101,11 @@
 						</view>
 					</view>
 				</view>
-			</view>
-		</view>
-		<view class="btn-submit">
-			<button class="btn-block btn-orange" bindtap="questionSubmit">确认提交</button>
-		</view>
-	</view>
+			</view> -->
+    </view>
+    <view class="btn-submit">
+      <button class="btn-block btn-orange" bindtap="questionSubmit" type='submit'>确认提交</button>
+    </view>
+  </view>
+  </form>
 </view>

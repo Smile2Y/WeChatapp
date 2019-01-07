@@ -54,7 +54,7 @@ Page({
         {
           'icon':'./../../images/icon_13.png',
           'text':'未命名',
-          'url':'apply'
+          'url':'test_page/test_page'
         },
       ],
       imgUrls: [

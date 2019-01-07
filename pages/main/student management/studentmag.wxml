@@ -27,7 +27,20 @@
         <button class="btn-block btn-orange">
           Excel表导入</button>
       </navigator>
-      </view>
+    </view>
 
   </form>
+
+  <!--  显示以导入的学生   -->
+  <view class='service-item'>
+    <text class='service-title'>已添加的学生</text>
   </view>
+  <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+    <navigator class="service-item" wx:for="{{userList}}" wx:key="{{item.id}}">
+      <view class='service-tags'>
+        <text>工号：{{item}}</text>
+      </view>
+    </navigator>
+  </scroll-view>
+
+</view>

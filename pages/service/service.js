@@ -19,7 +19,7 @@ Page({
   },
   onLoad: function () { //加载数据渲染页面
     this.fetchServiceData();
-    this.fetchFilterData();
+    //this.fetchFilterData();
 
     var that = this
     // this.getmsg(0, that.data.counter)
@@ -69,15 +69,15 @@ Page({
     // newlist1=this.data.coursedata.value;
 
     wx.request({
-      url: 'http://shx.nat300.top/api/course/activeCourse',
+      url: 'http://shx.nat300.top/api/course/getStudentCourse',
       // method:Post,
       // header: { 'Content-Type': 'json' },
       method: "POST",
       success: function (res) {
-        console.log(res.data)
+        //console.log(res.data)
         for (var i = (page - 1) * perpage; i < page * perpage; i++) {
           newlist.push({
-            "id": res.data.data[i].id,
+            "courseId": res.data.data[i].id,
             "courseName": res.data.data[i].courseName,
             "teacher": res.data.data[i].courseTeacherName,
             "tag": res.data.data[i].courseMajor,

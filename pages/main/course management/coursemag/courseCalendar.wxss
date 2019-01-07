@@ -1,11 +1,9 @@
-/* pages/main/student management/studentmag.wxss */
 .service-list{
 	padding: 0 20rpx;
 }
 .service-item{
 	display: flex;
 	padding: 20rpx 0; 
-  margin-right: 10px;
 	border-bottom: 1rpx solid #e8e8e8;
 }
 .service-img{
@@ -31,7 +29,6 @@
 }
 .service-tags{
 	margin: 6rpx 0;
-  margin-right: 10px;
 }
 .service-tags text{
 	padding: 6rpx 16rpx;
