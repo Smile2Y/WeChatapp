@@ -11,14 +11,21 @@
 	</view>
 <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
 		<view class="service-list">
-			<navigator class="service-item" wx:for="{{courseList}}" wx:key="{{item.id}}" url="/pages/main/course management/coursemag?id={{item.id}}">
+			<navigator class="service-item" wx:for="{{courseList}}" wx:key="{{item.id}}">
 				<view class="service-text">
 					<view class="service-tite">{{item.courseTopic}}</view>
 					<!-- <view class="service-tags"> -->
           <view>						
             <text>课程时间：{{item.courseTime}}</text>
           </view>
+          <view>
 					<text class="service-city">内容简介：{{item.courseContent}}</text>
+          </view>
+          <view>
+          <text class="service-city">知识点：{{item.courseKnowledge}}</text>
+					</view>
+          <text class="service-city">能力点：{{item.courseAbility}}</text>
+
 				</view>
 			</navigator>
 		</view>
