@@ -22,6 +22,7 @@
     "pages/main/main",
     "pages/main/course management/coursemag",
     "pages/main/course management/courseaddtion/courseadd",
+    "pages/main/course management/coursemag/courseCalendar",
     "pages/main/evaluate management/evaluatemag",
     "pages/main/evaluate analyze/evaluatelyze",
     "pages/main/student management/studentmag",
