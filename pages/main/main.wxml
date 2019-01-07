@@ -28,7 +28,7 @@
     <view class='items'>
       <view class='imagestyle'><image src='/image/index.png'></image></view>
       <view style='width:240px'>
-        <text>评介指标设定</text>
+        <text>评价指标设定</text>
       </view>
       <view class=''>
         <image src='/image/toright.png'></image>
@@ -66,12 +66,26 @@
 
 </navigator>
 
-  <navigator url='../main/evaluate analyze/evaluatelyze'>
+  <navigator url='../main/evaluate analyze/evaluatelyze?id={{id}}&courseName={{courseName}}'>
     <view class='backgrounds'>
       <view class='items'>
       <view class='imagestyle'><image src='/image/analyze.png'></image></view>
       <view style='width:240px'>
         <text>评价分析</text>
+      </view>
+      <view class=''>
+        <image src='/image/toright.png'></image>
+      </view>
+    </view>
+    </view>
+  </navigator>
+
+  <navigator url='/pages/main/evaluate openOrclose/evaluateOoC?id={{id}}'>
+    <view class='backgrounds'>
+      <view class='items'>
+      <view class='imagestyle'><image src='/image/calendar.png'></image></view>
+      <view style='width:240px'>
+        <text>评价开放与关闭</text>
       </view>
       <view class=''>
         <image src='/image/toright.png'></image>

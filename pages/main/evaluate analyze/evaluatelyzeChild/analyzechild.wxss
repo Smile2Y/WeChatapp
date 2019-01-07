@@ -1,0 +1,6 @@
+/* pages/main/evaluate analyze/evaluatelyzeChild/analyzechild.wxss */
+
+ec-canvas {
+  width: 350px;
+  height: 350px;
+}

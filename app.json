@@ -1,5 +1,6 @@
 {
   "pages":[
+    
     "pages/index/index",
     "pages/space/space",
     "pages/spacereserve/spacereserve",
@@ -27,28 +28,30 @@
     "pages/main/student management/studentmag",
     "pages/main/student management/excel input/excelin",
     "pages/main/peer management/peermag",
-    "pages/main/peer management/excel input/excelin"
+    "pages/main/peer management/excel input/excelin",
+    "pages/main/evaluate analyze/evaluatelyzeChild/analyzechild",
+    "pages/main/evaluate openOrclose/evaluateOoC"
   ],
   "window":{
     "backgroundTextStyle":"white",
     "navigationBarBackgroundColor": "#f7982a",
-    "navigationBarTitleText": "创客+",
+    "navigationBarTitleText": "课程教评管理系统",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "服务",
+      "text": "主页",
       "iconPath":"images/xihuan.png",
       "selectedIconPath":"images/xihuanfill.png"
     }, {
       "pagePath": "pages/activity/activity",
-      "text": "活动",
+      "text": "见闻",
       "iconPath":"images/biaoxing.png",
       "selectedIconPath":"images/biaoxingfill.png"
     }, {
       "pagePath": "pages/my/my",
-      "text": "我发起的",
+      "text": "我的",
       "iconPath":"images/yonghu.png",
       "selectedIconPath":"images/yonghufill.png"
     }],

@@ -1,0 +1,102 @@
+<!-- <view style='height:300px'>
+  <view style='width:100%;height:60px；'>
+    <button style="margin-top:5px;background:{{color}}" bindtap='switchTab' id='{{bUid}}'>{{opOcl}}</button>
+  </view>
+
+  <view id='tableft' class='tab-left {{currentTab === 0 ? "tab-active":"tabnull"}}' bindtap='switchTab'>
+    课堂开放时间设定
+    <view class=' {{currentTab === 0 ? "group-body":"tabnull"}}'>
+
+      <view class=' {{currentTab === 0 ? "item-container":"tabnull"}}'>
+        <view class=' {{currentTab === 0 ? "section":"tabnull"}}'>
+          <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-1-23" bindchange="bindDateChange">
+            <view class="picker">
+              起始日期: {{sdates}}
+            </view>
+          </picker>
+        </view>
+        <view class=' {{currentTab === 0 ? "section":"tabnull"}}'>
+          <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+            <view class="picker">
+              起始时间 : {{stimes}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class=' {{currentTab === 0 ? "item-container":"tabnull"}}'>
+        <view class=' {{currentTab === 0 ? "section":"tabnull"}}'>
+          <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-1-23" bindchange="ebindDateChange">
+            <view class="picker">
+              结束日期: {{edates}}
+            </view>
+          </picker>
+        </view>
+        <view class=' {{currentTab === 0 ? "section":"tabnull"}}'>
+          <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="ebindTimeChange">
+            <view class="picker">
+              结束时间 : {{etimes}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <button bindtap="applySubmit" type="primary">设定评价时间</button>
+
+    </view>
+  </view>
+
+
+  <view id='tabright' class='tab-right {{currentTab === 1 ? "tabnull" : "tabnull"}}' bindtap='switchTab'>
+  </view>
+</view> -->
+
+<view style='width:100%;height:60px'>
+  <button style="margin-top:5px;background:{{color2}}" bindtap='switchTab2' id='{{bUid2}}'>{{opOcl2}}</button>
+</view>
+
+<view id='tableft' class='tab-left {{currentTab2 === 0 ? "tab-active":"tabnull"}}' bindtap='switchTab2'>
+  课程开放时间设定
+  <view class=' {{currentTab2 === 0 ? "group-body":"tabnull"}}'>
+
+    <view class=' {{currentTab2 === 0 ? "item-container":"tabnull"}}'>
+      <view class=' {{currentTab2 === 0 ? "section":"tabnull"}}'>
+        <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-1-23" bindchange="bindDateChange">
+          <view class="picker">
+            起始日期: {{sdates2}}
+          </view>
+        </picker>
+      </view>
+      <view class=' {{currentTab2 === 0 ? "section":"tabnull"}}'>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+          <view class="picker">
+            起始时间 : {{stimes2}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class=' {{currentTab2 === 0 ? "item-container":"tabnull"}}'>
+      <view class=' {{currentTab2 === 0 ? "section":"tabnull"}}'>
+        <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-1-23" bindchange="ebindDateChange">
+          <view class="picker">
+            结束日期: {{edates2}}
+          </view>
+        </picker>
+      </view>
+      <view class=' {{currentTab2 === 0 ? "section":"tabnull"}}'>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="ebindTimeChange">
+          <view class="picker">
+            结束时间 : {{etimes2}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <button bindtap="applySubmit" type="primary" style="width:100%">设定评价时间</button>
+
+  </view>
+</view>
+
+
+<view id='tabright' class='tab-right {{currentTab2 === 1 ? "tabnull" : "tabnull"}}' bindtap='switchTab2'>
+  <!-- <view class='tabitem'>课程归档</view> -->
+</view>

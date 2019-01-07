@@ -34,7 +34,8 @@ App({
   },
   globalData:{
     //全局信息
-    userInfo:null
+    userInfo:null,
+    list:[]
   },
 
   

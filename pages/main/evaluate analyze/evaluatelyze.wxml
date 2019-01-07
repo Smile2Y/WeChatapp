@@ -1,2 +1,73 @@
 <!--pages/main/evaluate analyze/evaluatelyze.wxml-->
-<canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas"></canvas>
+
+<!-- <view style='height:300px'><canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas"></canvas></view> -->
+
+<view class="container">
+  <view class="group-header">课程评价分析</view>
+  <view class='group-body' style=' width: 270px;height: 270px;margin-left:50px'>
+    <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas>
+  </view>
+</view>
+
+
+<view class="group-header">课堂评价分析查询</view>
+  <view class='group-body' >
+
+<view class='item-container'>
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-1-23" bindchange="bindDateChange">
+      <view class="picker">
+        起始日期: {{sdates}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+      <view class="picker">
+        起始时间 : {{stimes}}
+      </view>
+    </picker>
+  </view>
+
+
+
+</view>
+
+
+<view class='item-container'>
+
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="1978-01-01" end="2020-1-23" bindchange="ebindDateChange">
+      <view class="picker">
+        结束日期: {{edates}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="ebindTimeChange">
+      <view class="picker">
+        结束时间 : {{etimes}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+
+<view class="btn-submit">
+  <button class="btn-block btn-orange" bindtap="applySubmit" type="primary">查看评价分析</button>
+  </view>
+</view>
+
+<!-- <text class="input-item-label">教学评价</text> -->
+<view class="group-header">教学评价</view>
+  <view class='group-body' >
+
+<block wx:for="{{elist}}">
+  <view class="input-item input-item-full" style='margin:4px 2px 0 2px'>
+
+    <textarea placeholder="" maxlength="50" name='courseContent'>{{item.rateAddtional}}</textarea>
+  </view>
+</block>
+</view>

@@ -1,4 +1,5 @@
 // pages/main/course management/coursemag.js
+
 Page({
 
   /**
