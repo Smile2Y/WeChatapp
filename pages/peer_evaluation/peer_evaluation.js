@@ -1,4 +1,5 @@
 import util from './../../utils/util.js';
+//import cookie from '../../../../vendor/weapp-cookie/index';
 var app = getApp()
 var count = 0;
 Page({
@@ -15,13 +16,12 @@ Page({
     checitems: [],
     // selected:null,
     selectedid: null,
-    //value:[],
+    content:'',
+    radio: [],
+    userRadio:[],
+    com:'',
 
-    radio: [{
-        name:"fsjk",value: '',
-    }],
-
-    flag2: 2.5,
+    flag2: 2,
   },
 
   onLoad: function(options) {
@@ -43,13 +43,18 @@ Page({
         courseId: that.data.courseId
       },
       success: function(res) {
-        console.log(res)
-        console.log(this.data.radio[1].value)
-        //this.setData({
-          console.log(res.data.data[1].normName)
-        this.data.radio[1].value = res.data.data[1].normName
-        console.log(this.data.radio[1].value)
-      //})
+        var normList = []
+        for (var i = 0; i < res.data.data.length; i++) {
+          var norm = {
+            value: res.data.data[i].id,
+            name: res.data.data[i].normName
+          }
+          normList.push(norm)
+        }
+        //console.log(normList)
+        that.setData({
+          radio: normList
+        })
       }
 
     })
@@ -68,114 +73,132 @@ Page({
     } else {
       this.data.radio[index].checked = true;
     }
-    let userRadio = radio.filter((item, index) => {
+    this.data.userRadio = radio.filter((item, index) => {
       return item.checked == true;
     })
+    //console.log(userRadio)
+
+    //console.log(this.data.com)
     this.setData({
-      radio: this.data.radio
+      radio: this.data.radio,
+      userRadio: this.data.userRadio,
+      //com:this.data.com
     })
-    console.log(userRadio)
+    //console.log(this.data.com)
+    //console.log(radio)
+  },
+  // onShow:function(e){
+  //   var arr = this.data.userRadio;
+
+  //   for (var i = 0, len = arr.length; i < len; i++) {
+  //     console.log(arr[i].value);//遍历输出
+  //     this.data.com = this.data.com+',' + arr[i].value;//赋结新值
+  //     console.log(this.data.com)
+  //   }
+  // },
+
+  bindinput:function(e){
+    this.setData({
+      content:e.detail.value
+    })
+
+  },
+
+  chooseimg: function () {
+    var that = this
+    wx.chooseImage({
+      success: function (res) {
+        console.log(res)
+        // const tempFilePaths = res.tempFilePaths
+        console.log(res.tempFilePaths)
+        that.setData({
+          imag: res.tempFilePaths[0]
+        })
+        console.log(res)
+        console.log("选择图片： " + res.tempFilePaths[0])
+        console.log(res.tempFiles)
+      },
+
+    })
   },
 
   formSubmit: function(e) {
     var that = this;
-    console.log(that.data.id)
-    wx.request({
+    var arr = that.data.userRadio;
+    for (var i = 0, len = arr.length; i < len; i++) {
+      //console.log(arr[i].value);//遍历输出
+      that.data.com = that.data.com + ',' + arr[i].value;//赋结新值
+    }
+    that.setData({
+      com:that.data.com
+    })
+    //console.log(that.data.content)
+    //console.log(that.data.com)
+    console.log(that.data.uploadimgs)
+
+    wx.uploadFile({
       url: 'http://shx.nat300.top/api/assess/addAssess',
-      // method:Post,
+      filePath: that.data.imag,
       header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        "content-type": "multipart/form-data",
+        //"Cookie": "user_token=" + cookie.get("user_token")
       },
-      method: "POST",
-      data: {
-        courseType: 1,
+      name: 'pic',
+      formData: {
+        courseType: 0,
         courseId: that.data.courseId,
         courseName: that.data.courseName,
-        rateLevel: flag,
-        rateNorm: demoData,
-        rateAddtional: demoData,
+        rateLevel: that.data.flag2,
+        rateNorm: that.data.com,
+        rateAddtional: that.data.content
       },
-      success: function(res) {
-        console.log(res)
-        that.setData({
-          items: res.data.data,
-          imgurl: "http://shx.nat300.top" + res.data.data.coursePic,
+      success: function (e) {
+        wx.showToast({
+          title: '上传成功',
+          icon: 'success',
+          duration: 1500
         })
       }
-    })
+      
+      })
+    // wx.request({
+    //   url: 'http://shx.nat300.top/api/assess/addAssess',
+    //   // method:Post,
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //     //'Content-Type': "multipart/form-data",
+    //     //"Cookie": "user_token=" + cookie.get("user_token")
+    //   },
+    //   method: "POST",
+    //   formdata: {
+    //     pic:that.data.uploadimgs,
+    //     courseType: 0,
+    //     courseId: that.data.courseId,
+    //     courseName: that.data.courseName,
+    //     rateLevel: that.data.flag2,
+    //     rateNorm: that.data.com,
+    //     rateAddtional: that.data.content
+    //   },
+    //   success: function(res) {
+    //     console.log(res)
+    //     if (res.data.code == "0") {
+    //       wx.showToast({
+    //         title: "提交成功",
+    //         icon: 'success',
+    //         duration: 1000
+    //       })
+    //     } else {
+    //       wx.showToast({
+    //         //title: res.data.info,
+    //         title: "课程不在评价时间段",
+    //         icon: 'loading',
+    //         duration: 1500
+    //       })
+    //     }
+    //   }
+    // })
   },
 
-  // getradio2: function (e) {
-  //   let index = e.currentTarget.dataset.id;
-  //   let radio2 = this.data.radio2;
-  //   for (let i = 0; i < radio2.length; i++) {
-  //     this.data.radio2[i].checked = false;
-  //   }
-  //   if (radio2[index].checked) {
-  //     this.data.radio2[index].checked = false;
-  //   } else {
-  //     this.data.radio2[index].checked = true;
-  //   }
-  //   let userRadio2 = radio2.filter((item, index) => {
-  //     return item.checked == true;
-  //   })
-  //   this.setData({ radio2: this.data.radio2 })
-  //   console.log(userRadio2)
-  // },
-
-  // getradio3: function (e) {
-  //   let index = e.currentTarget.dataset.id;
-  //   let radio3 = this.data.radio3;
-  //   for (let i = 0; i < radio3.length; i++) {
-  //     this.data.radio3[i].checked = false;
-  //   }
-  //   if (radio3[index].checked) {
-  //     this.data.radio3[index].checked = false;
-  //   } else {
-  //     this.data.radio3[index].checked = true;
-  //   }
-  //   let userRadio3 = radio3.filter((item, index) => {
-  //     return item.checked == true;
-  //   })
-  //   this.setData({ radio3: this.data.radio3 })
-  //   console.log(userRadio3)
-  // },
-
-  // getradio4: function (e) {
-  //   let index = e.currentTarget.dataset.id;
-  //   let radio4 = this.data.radio4;
-  //   for (let i = 0; i < radio4.length; i++) {
-  //     this.data.radio4[i].checked = false;
-  //   }
-  //   if (radio4[index].checked) {
-  //     this.data.radio4[index].checked = false;
-  //   } else {
-  //     this.data.radio4[index].checked = true;
-  //   }
-  //   let userRadio4 = radio4.filter((item, index) => {
-  //     return item.checked == true;
-  //   })
-  //   this.setData({ radio4: this.data.radio4 })
-  //   console.log(userRadio4)
-  // },
-
-  // getradio5: function (e) {
-  //   let index = e.currentTarget.dataset.id;
-  //   let radio5 = this.data.radio5;
-  //   for (let i = 0; i < radio5.length; i++) {
-  //     this.data.radio5[i].checked = false;
-  //   }
-  //   if (radio5[index].checked) {
-  //     this.data.radio5[index].checked = false;
-  //   } else {
-  //     this.data.radio5[index].checked = true;
-  //   }
-  //   let userRadio5 = radio5.filter((item, index) => {
-  //     return item.checked == true;
-  //   })
-  //   this.setData({ radio5: this.data.radio5 })
-  //   console.log(userRadio5)
-  // },
   changeColor11: function() {
     var that = this;
     that.setData({
@@ -220,54 +243,56 @@ Page({
   //   })
   //   console.log(this.data.selectedid);
   // },
-  chooseImage: function() {
-    let _this = this;
-    wx.showActionSheet({
-      itemList: ['从相册中选择', '拍照'],
-      itemColor: "#f7982a",
-      success: function(res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            _this.chooseWxImage('album')
-          } else if (res.tapIndex == 1) {
-            _this.chooseWxImage('camera')
-          }
-        }
-      }
-    })
-  },
-  chooseWxImage: function(type) {
-    let _this = this;
-    wx.chooseImage({
-      sizeType: ['original', 'compressed'],
-      sourceType: [type],
-      success: function(res) {
-        _this.setData({
-          uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
-        })
-      }
-    })
-  },
-  editImage: function() {
-    this.setData({
-      editable: !this.data.editable
-    })
-  },
-  deleteImg: function(e) {
-    console.log(e.currentTarget.dataset.index);
-    const imgs = this.data.uploadimgs
-    Array.prototype.remove = function(i) {
-      const l = this.length;
-      if (l == 1) {
-        return []
-      } else if (i > 1) {
-        return [].concat(this.splice(0, i), this.splice(i + 1, l - 1))
-      }
-    }
-    this.setData({
-      uploadimgs: imgs.remove(e.currentTarget.dataset.index)
-    })
-  },
+
+
+  // chooseImage: function() {
+  //   let _this = this;
+  //   wx.showActionSheet({
+  //     itemList: ['从相册中选择', '拍照'],
+  //     itemColor: "#f7982a",
+  //     success: function(res) {
+  //       if (!res.cancel) {
+  //         if (res.tapIndex == 0) {
+  //           _this.chooseWxImage('album')
+  //         } else if (res.tapIndex == 1) {
+  //           _this.chooseWxImage('camera')
+  //         }
+  //       }
+  //     }
+  //   })
+  // },
+  // chooseWxImage: function(type) {
+  //   let _this = this;
+  //   wx.chooseImage({
+  //     sizeType: ['original', 'compressed'],
+  //     sourceType: [type],
+  //     success: function(res) {
+  //       _this.setData({
+  //         uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
+  //       })
+  //     }
+  //   })
+  // },
+  // editImage: function() {
+  //   this.setData({
+  //     editable: !this.data.editable
+  //   })
+  // },
+  // deleteImg: function(e) {
+  //   console.log(e.currentTarget.dataset.index);
+  //   const imgs = this.data.uploadimgs
+  //   Array.prototype.remove = function(i) {
+  //     const l = this.length;
+  //     if (l == 1) {
+  //       return []
+  //     } else if (i > 1) {
+  //       return [].concat(this.splice(0, i), this.splice(i + 1, l - 1))
+  //     }
+  //   }
+  //   this.setData({
+  //     uploadimgs: imgs.remove(e.currentTarget.dataset.index)
+  //   })
+  // },
   // questionSubmit: function() {},
 
   chooseicon: function(e) {

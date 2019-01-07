@@ -4,13 +4,13 @@
     <view class="group">
       <view class="group-header">课程评价</view>
       <view class="group-body">
-        <textarea placeholder="请输入对本课程的评价，可输入1000字" maxlength="1000"></textarea>
+        <textarea  name="content" value="{{content}}" bindinput="bindinput" placeholder="请输入对本课程的评价，可输入1000字" maxlength="1000"></textarea>
       </view>
 
 
       <view class='group-body1'>
           <view wx:for="{{radio}}" class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio'>
-            <text>{{item.value}}</text>
+            <text>{{item.name}}</text>
           </view>
       </view>
 
@@ -47,13 +47,6 @@
         </view> -->
 
 
-
-
-
-
-
-
-
       <!-- <view class="group-body">
 			<view class="multiple-select">
 				<view wx:for="{{checitems}}" wx:key="{{item.id}}">
@@ -75,7 +68,7 @@
       </view>
 
 
-      <view class="group-header">上传图片</view>
+      <!-- <view class="group-header">上传图片</view>
       <view class="group-body">
         <view class="img-upload">
           <view class="img-add" bindtap="chooseImage"></view>
@@ -84,7 +77,20 @@
             <image src="{{item}}" mode="aspectFill"></image>
           </view>
         </view>
-      </view>
+      </view> -->
+
+         <view class="input-item input-item-full">
+            <text class="input-item-label">课程参考图片</text>
+            <view class="img-upload">
+              <view class="img-add" bindtap='chooseimg'>
+                <image src='{{imag}}' style='width:55px;height:55px'></image>
+              </view>
+              <view class="img-item">
+              </view>
+            </view>
+          </view>
+
+
       <!-- <view class="group-header">评价人信息</view>
 			<view class="group-body">
 				<view class="input-list">
@@ -104,7 +110,7 @@
 			</view> -->
     </view>
     <view class="btn-submit">
-      <button class="btn-block btn-orange" bindtap="questionSubmit" type='submit'>确认提交</button>
+      <button class="btn-block btn-orange" bindtap="formSubmit" type='submit'>确认提交</button>
     </view>
   </view>
   </form>
