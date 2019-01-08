@@ -22,16 +22,22 @@ Page({
     com: '',
 
     flag2: 2,
+    courseId: '',
+    courseName: '',
+    courseType: '',
+    courseNormId:''
   },
 
   onLoad: function (options) {
-    this.courseId = options.courseId;
-    this.courseName = options.courseName;
-    this.courseType = options.courseType
+    this.data.courseId = options.courseId;
+    this.data.courseName = options.courseName;
+    this.data.courseType = options.courseType
+    this.data.courseNormId=options.courseNormId
     this.setData({
       courseId: options.courseId,
       courseName: options.courseName,
-      courseType: options.courseType
+      courseType: options.courseType,
+      courseNormId:options.courseNormId
     })
     var that = this
     wx.request({
@@ -42,7 +48,7 @@ Page({
       method: "POST",
       data: {
         normType: 0,
-        courseId: that.data.courseId
+        courseId: that.data.courseNormId
       },
       success: function (res) {
         var normList = []
@@ -155,12 +161,27 @@ Page({
         rateNorm: that.data.com,
         rateAddtional: that.data.content
       },
-      success: function (e) {
-        wx.showToast({
-          title: '上传成功',
-          icon: 'success',
-          duration: 1500
-        })
+      success: function (res) {
+        console.log(res)
+        console.log(res.data.code)
+        res.data = JSON.parse(res.data)
+        if (res.data.code == "0") {
+          wx.showToast({
+            title: '上传成功',
+            icon: 'success',
+            duration: 1500
+          })
+        } else {
+          wx.showToast({
+            title: '提交失败',
+            icon: 'loading',
+            duration: 1500
+          })
+        }
+
+      },
+      fail: function (e) {
+        console.log(e)
       }
 
     })

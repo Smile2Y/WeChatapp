@@ -17,15 +17,47 @@
     <view>
       <text>课程简介：{{items.courseDescribe}}</text>
     </view>
+
+<view>
+	<view class="search-flex {{scrolltop>200?'tophide':''}}">
+	</view>
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+		<view class="service-list">
+			<navigator url='/pages/peer_evaluation/peer_evaluation?courseId={{item.id}}&courseNormId={{courseId}}&courseName={{courseName}}&courseType=1' class="service-item" wx:for="{{courseList}}" wx:key="{{item.id}}">
+				<view class="service-text" id='{{}}'>
+					<view class="service-tite">{{item.courseTopic}}</view>
+					<!-- <view class="service-tags"> -->
+          <view>						
+            <text>课程时间：{{item.courseTime}}</text>
+          </view>
+          <view>
+					<text class="service-city">内容简介：{{item.courseContent}}</text>
+          </view>
+          <view>
+          <text class="service-city">知识点：{{item.courseKnowledge}}</text>
+					</view>
+          <text class="service-city">能力点：{{item.courseAbility}}</text>
+
+				</view>
+			</navigator>
+		</view>
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>
+
   </view>
+
+
+
+
   <view class="container-footer">
-    <navigator class="container-footer" url='../student_evaluation/student_evaluation?courseId={{courseId}}&courseName={{courseName}}&courseType=0'>
+    <navigator class="container-footer" url='../peer_evaluation/peer_evaluation?courseId={{courseId}}&courseName={{courseName}}&courseNormId={{courseId}}&courseType=0'>
       <button class="btn-orange btn-block">课程评价</button>
     </navigator>
   </view>
-  <view class="container-footer">
+  <!-- <view class="container-footer">
     <navigator class="container-footer" url='../student_evaluation/student_evaluation?courseId={{courseId}}&courseName={{courseName}}&courseType=1'>
       <button class="btn-orange btn-block">课堂评价</button>
     </navigator>
-  </view>
+  </view> -->
 </view>

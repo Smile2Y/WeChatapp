@@ -1,6 +1,8 @@
 Page({
   data: {
+    id:'',
     courseId:'',
+    courseList:[]
   },
   onLoad: function (options) {
     this.courseId = options.courseId;
@@ -10,6 +12,24 @@ Page({
       courseName:options.courseName
     })
     this.fetchData();
+
+    var that =this
+    wx.request({
+      url: 'http://shx.nat300.top/api/course/courseCalendar',
+      method: "POST",
+      data: {
+        "id": that.courseId,
+      },
+      success: function (e) {
+        if (e.data.data[0] != null) {
+          console.log(e)
+          that.setData({
+            courseList: e.data.data
+          })
+        }
+      }
+    })
+    //console.log(this.data.courseId)
 
   },
   fetchData:function(){
