@@ -104,6 +104,7 @@ Page({
         courseName: res.detail.value.courseName,
       },
       success:function(e){
+        console.log(e)
         wx.showToast({
           title: '上传成功',
           icon: 'success',
