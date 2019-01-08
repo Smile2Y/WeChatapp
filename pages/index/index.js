@@ -45,23 +45,23 @@ Page({
           'icon':'./../../images/icon_07.png',
           'text':'注册登录',
           'url':'login/login'
-        }
+        },
        
-        // {
-        //   'icon':'./../../images/icon_11.png',
-        //   'text':'未命名',
-        //   'url':'property'
-        // },
-        // {
-        //   'icon':'./../../images/icon_13.png',
-        //   'text':'未命名',
-        //   'url':'test_page/test_page'
-        // },
+        {
+          'icon':'./../../images/icon_11.png',
+          'text':'更多功能',
+          'url':'property'
+        },
+        {
+          'icon':'./../../images/icon_13.png',
+          'text':'尽情期待',
+          'url':'test_page/test_page'
+        },
       ],
       imgUrls: [
-        '../../images/banner_02.jpg',
-        // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-        // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+        '../../image/timg-5.jpeg',
+        '../../image/timg.jpeg',
+        '../../image/background.png'
       ]
     })
   },

@@ -183,7 +183,6 @@ Page({
       fail: function (e) {
         console.log(e)
       }
-
     })
     // wx.request({
     //   url: 'http://shx.nat300.top/api/assess/addAssess',

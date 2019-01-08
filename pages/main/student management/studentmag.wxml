@@ -9,7 +9,7 @@
       </view>
 
       <view class="input-item">
-        <text class="input-item-label">手机号码</text>
+        <text class="input-item-label">密码</text>
         <view class="input-item-content">
           <input name="Tel" type="idcard" auto-focus placeholder="请输入您的密码" bindinput="inputTel" value="{{Tel}}"></input>
         </view>
