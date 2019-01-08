@@ -173,7 +173,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '提交失败',
+            title: res.data.message,
             icon: 'loading',
             duration: 1500
           })

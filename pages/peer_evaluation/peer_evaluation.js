@@ -163,9 +163,9 @@ Page({
         rateAddtional: that.data.content
       },
       success: function (res) {
+        res.data = JSON.parse(res.data)
         console.log(res)
         console.log(res.data.code)
-        res.data = JSON.parse(res.data)
         if(res.data.code==="0"){
           wx.showToast({
             title: '上传成功',
@@ -177,19 +177,16 @@ Page({
           // })
         }else{
           wx.showToast({
-            title: '提交失败',
+            title: res.data.message,
             icon: 'loading',
             duration: 1500
           })
         }
-        
-        // setTimeout(function () {
-        //   wx.redirectTo({
-        //     url: '/pages/servicedetail/servicedetail?id=' + that.data.courseId,
-        //   })
-        // }, 1500)
+
+
       },
-      fail: function(e){
+    fail: function(e){
+
         console.log(e)
       }
       
