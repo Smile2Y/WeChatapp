@@ -26,36 +26,37 @@ Page({
           'text':'教师管理',
           'url':'main/teaching calendar/teachingcald'
         },
-        {
-          'icon':'./../../images/icon_03.png',
-          'text':'未命名',
-          // 'url':'service'
-        },
+        // {
+        //   'icon':'./../../images/icon_03.png',
+        //   'text':'未命名',
+        //   // 'url':'service'
+        // },
         {
           'icon':'./../../images/icon_05.png',
           'text':'学生评价',
           'url':'service_s/service_s'
         },
         {
+          'icon': './../../images/icon_09.png',
+          'text': '同行评价',
+          'url': 'service/service'
+        },
+        {
           'icon':'./../../images/icon_07.png',
           'text':'注册登录',
           'url':'login/login'
-        },
-        {
-          'icon':'./../../images/icon_09.png',
-          'text':'同行评价',
-          'url':'service/service'
-        },
-        {
-          'icon':'./../../images/icon_11.png',
-          'text':'未命名',
-          'url':'property'
-        },
-        {
-          'icon':'./../../images/icon_13.png',
-          'text':'未命名',
-          'url':'test_page/test_page'
-        },
+        }
+       
+        // {
+        //   'icon':'./../../images/icon_11.png',
+        //   'text':'未命名',
+        //   'url':'property'
+        // },
+        // {
+        //   'icon':'./../../images/icon_13.png',
+        //   'text':'未命名',
+        //   'url':'test_page/test_page'
+        // },
       ],
       imgUrls: [
         '../../images/banner_02.jpg',

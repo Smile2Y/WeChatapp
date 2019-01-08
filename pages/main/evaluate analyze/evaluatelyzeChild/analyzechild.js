@@ -111,7 +111,7 @@ Page({
   
    initChart(e.detail.canvas, e.detail.width, e.detail.height)
 
-    app.globalData.list = list
+    app.globalData.listB = list
       
   }
 })

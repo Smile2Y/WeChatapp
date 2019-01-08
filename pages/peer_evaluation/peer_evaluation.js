@@ -53,6 +53,7 @@ Page({
       },
       success: function(res) {
         var normList = []
+        console.log(res.data)
         for (var i = 0; i < res.data.data.length; i++) {
           var norm = {
             value: res.data.data[i].id,
@@ -60,14 +61,14 @@ Page({
           }
           normList.push(norm)
         }
-        //console.log(normList)
+        console.log(normList)
         that.setData({
           radio: normList
         })
       }
 
     })
-    //console.log(this.value)
+    //console.log(this.value)courseId=22&courseNormId=31&courseName=离散数学&courseType=1
 
   },
   //单选
@@ -171,6 +172,9 @@ Page({
             icon: 'success',
             duration: 1500
           })
+          // wx.redirectTo({
+          //   url: '/pages/servicedetail/servicedetail',
+          // })
         }else{
           wx.showToast({
             title: '提交失败',
@@ -178,7 +182,12 @@ Page({
             duration: 1500
           })
         }
-
+        
+        // setTimeout(function () {
+        //   wx.redirectTo({
+        //     url: '/pages/servicedetail/servicedetail?id=' + that.data.courseId,
+        //   })
+        // }, 1500)
       },
       fail: function(e){
         console.log(e)

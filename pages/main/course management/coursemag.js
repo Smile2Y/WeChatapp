@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.data.id=options.id;
+    this.data.id=options.id;
     // console.log(this.data.id)
 // var that=this
 // wx.request({
@@ -126,7 +126,7 @@ Page({
         })
         setTimeout(function () {
           wx.redirectTo({
-            url: '../../main/teaching calendar/teachingcald',
+            url: '/pages/main/course management/coursemag/courseCalendar?id=' + that.data.id,
           })
         }, 1500)
 

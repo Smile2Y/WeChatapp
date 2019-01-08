@@ -180,8 +180,8 @@ Page({
         "courseType": 0,
         // "startTime": that.data.sdates+"T"+that.data.stimes+"Z",
         // "endTime": that.data.edates + "T" + that.data.etimes + "Z"
-        "startTime": "2018-01-02T16:00:00.000Z",
-        "endTime": "2019-01-03T16:00:00.000Z"
+        "startTime": "1998-01-02T16:00:00.000Z",
+        "endTime": "2099-01-03T16:00:00.000Z"
       },
       success: function(res) {
 
