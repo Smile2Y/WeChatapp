@@ -3,10 +3,7 @@ import * as echarts from '../../../ec-canvas/echarts';
 // var chartsm=require("../../../dist/wxcharts-min.js")
 // var charts = require("../../../dist/wxcharts.js")
 var pieChart = null;
-
-
 const app = getApp();
-
 function initChart(canvas, width, height) {
   const chart = echarts.init(canvas, null, {
     width: width,
@@ -54,7 +51,9 @@ Page({
     objectArray: ['中国', '英国', '美国'],
     index: 0,
     elist: [],
-    ec: {}
+    ec: {},
+    id:"",
+    flag2:""
   },
   touchHandler: function(e) {
     console.log(pieChart.getCurrentDataIndex(e));
@@ -66,33 +65,34 @@ Page({
   onLoad: function(options) {
     var windowWidth = 320;
     var that = this
-    wx.request({
-      url: 'http://shx.nat300.top/api/assess/analysis',
-      method: "POST",
-      data: {
-        "courseId": 1,
-        "courseType": 1,
-        "userType": 0,
-        "startTime": "2018-01-02T16:00:00.000Z",
-        "endTime": "2019-01-03T16:00:00.000Z"
-      },
-      success: function(e) {
-        var tlist = []
-        console.log(e.data.data.wxCourseRateList)
-        for (var keys in e.data.data.wxCourseRateList) {
+    this.data.id=options.id
+    // wx.request({
+    //   url: 'http://shx.nat300.top/api/assess/analysis',
+    //   method: "POST",
+    //   data: {
+    //     "courseId": options.id,
+    //     "courseType": 0,
+    //     "userType": 0,
+    //     "startTime": "2018-01-02T16:00:00.000Z",
+    //     "endTime": "2019-01-03T16:00:00.000Z"
+    //   },
+    //   success: function(e) {
+    //     var tlist = []
+    //     console.log(e.data.data.wxCourseRateList)
+    //     for (var keys in e.data.data.wxCourseRateList) {
 
-          var temp = {
-            rateAddtional: e.data.data.wxCourseRateList[keys].rateAddtional
-          }
-          tlist.push(temp)
+    //       var temp = {
+    //         rateAddtional: e.data.data.wxCourseRateList[keys].rateAddtional
+    //       }
+    //       tlist.push(temp)
 
-        }
-        console.log(tlist)
-        that.setData({
-          elist: tlist
-        })
-      }
-    })
+    //     }
+    //     console.log(tlist)
+    //     that.setData({
+    //       elist: tlist
+    //     })
+    //   }
+    // })
   },
 
   /**
@@ -172,21 +172,25 @@ Page({
   echartInit(e) {
     var that = this
     console.log(that.data.sdates)
-
     wx.request({
       url: 'http://shx.nat300.top/api/assess/analysis',
       method: "POST",
       data: {
-        "courseId": 1,
-        "courseType": 1,
-        "userType": 0,
+        "courseId": that.data.id,
+        "courseType": 0,
         // "startTime": that.data.sdates+"T"+that.data.stimes+"Z",
         // "endTime": that.data.edates + "T" + that.data.etimes + "Z"
         "startTime": "2018-01-02T16:00:00.000Z",
         "endTime": "2019-01-03T16:00:00.000Z"
       },
       success: function(res) {
-        console.log(res.data.data)
+
+        that.setData({
+          flag2: res.data.data.averageRate
+        })
+
+
+        // console.log(res.data.data)
         for (var key in res.data.data.map) {
           if (key != __proto__) {
             var temp = {
@@ -196,6 +200,21 @@ Page({
             app.globalData.list.push(temp)
           }
         }
+
+        var tlist = []
+        console.log(res.data.data.wxCourseRateList)
+        for (var keys in res.data.data.wxCourseRateList) {
+
+          var temp = {
+            rateAddtional: res.data.data.wxCourseRateList[keys].rateAddtional
+          }
+          tlist.push(temp)
+
+        }
+        console.log(tlist)
+        that.setData({
+          elist: tlist
+        })
         // console.log(app.globalData.list+"success")
         initChart(e.detail.canvas, e.detail.width, e.detail.height);
         var listT=[]
@@ -214,13 +233,10 @@ Page({
       url: 'http://shx.nat300.top/api/assess/analysis',
       method: "POST",
       data: {
-        "courseId": 1,
+        "courseId": this.data.id,
         "courseType": 1,
-        "userType": 0,
         "startTime": that.data.sdates+"T"+that.data.stimes+"Z",
         "endTime": that.data.edates + "T" + that.data.etimes + "Z"
-        // "startTime": "2018-01-02T16:00:00.000Z",
-        // "endTime": "2019-01-03T16:00:00.000Z"
       },
       success: function (res) {
         console.log(res.data.data)
@@ -230,7 +246,7 @@ Page({
               name: key,
               value: res.data.data.map[key]
             }
-            app.globalData.list.push(temp)
+            app.globalData.listB.push(temp)
           }
         }
         wx.navigateTo({

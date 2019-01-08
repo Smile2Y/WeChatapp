@@ -16,7 +16,6 @@ Page({
   onLoad: function (options) {
     this.data.id = options.id;
     var that = this
-
     wx.request({
       url: 'http://shx.nat300.top/api/course/courseCalendar',
       method: "POST",
@@ -88,7 +87,7 @@ Page({
 
   enterTo: function (e) {
     wx.navigateTo({
-      url: '/pages/main/course management/coursemag',
+      url: '/pages/main/course management/coursemag?id='+this.data.id,
     })
   }
 })

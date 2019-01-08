@@ -113,11 +113,11 @@ Page({
                 icon: 'success',
                 duration: 1500
               })
-              // setTimeout(function () {
-              //   wx.redirectTo({
-              //     url: '../../main/teaching calendar/teachingcald',
-              //   })
-              // }, 1500)
+              setTimeout(function () {
+                wx.redirectTo({
+                  url: '/pages/main/teaching calendar/teachingcald',
+                })
+              }, 1500)
             },
             fail: function () {
               console.log("失败")

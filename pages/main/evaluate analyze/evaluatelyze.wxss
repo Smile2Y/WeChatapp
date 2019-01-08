@@ -1,7 +1,9 @@
 /* pages/main/evaluate analyze/evaluatelyze.wxss */
+@import'/pages/student_evaluation/student_evaluation.wxss';
 page{
  display: flex;
- height: fit-content
+ height: fit-content;
+ 
 }
 .canvas{
   height: 500px;
@@ -27,7 +29,7 @@ page{
 
 
 ec-canvas {
-  width: 350px;
+  width: 480px;
   height: 350px;
 }
 

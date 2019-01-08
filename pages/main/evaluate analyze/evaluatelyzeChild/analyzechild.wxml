@@ -1,1 +1,10 @@
-<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas>
+<!-- <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas> -->
+
+  <view class="group-header">课堂评价分析</view>
+  <view class='group-body' style=' width: 375px;height: 150px;margin-left:0px'>
+  <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas>
+  </view>
+  <view class="group-header"></view>
+
+
+ <!-- <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}" bind:init="echartInit"></ec-canvas> -->

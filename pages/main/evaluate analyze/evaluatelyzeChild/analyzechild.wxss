@@ -1,6 +1,12 @@
-/* pages/main/evaluate analyze/evaluatelyzeChild/analyzechild.wxss */
+/* pages/main/evaluate analyze/evaluatelyze.wxss */
+page{
+ display: flex;
+ height: fit-content
+}
 
 ec-canvas {
-  width: 350px;
-  height: 350px;
+  width: 375px;
+  height: 150px;
 }
+
+

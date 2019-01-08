@@ -35,7 +35,8 @@ App({
   globalData:{
     //全局信息
     userInfo:null,
-    list:[]
+    list:[],
+    listB:[]
   },
 
   

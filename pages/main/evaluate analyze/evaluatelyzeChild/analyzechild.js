@@ -23,7 +23,7 @@ function initChart(canvas, width, height) {
       type: 'pie',
       center: ['50%', '50%'],
       radius: [0, '60%'],
-      data: app.globalData.list,
+      data: app.globalData.listB,
       itemStyle: {
         emphasis: {
           shadowBlur: 10,
