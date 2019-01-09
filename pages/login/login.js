@@ -70,7 +70,7 @@ Page({
         } else {
           wx.showToast({
             //title: res.data.info,
-            title:"登录失败",
+            title:res.data.message,
             icon: 'loading',
             duration: 1500
           })

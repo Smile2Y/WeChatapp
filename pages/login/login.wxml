@@ -11,7 +11,7 @@
       <view class="input-item">
         <text class="input-item-label">密码</text>
         <view class="input-item-content">
-          <input name="Password" type="text" auto-focus placeholder="请输入您的密码" bindinput="inputPassword" value="{{Password}}"></input>
+          <input name="Password" type="password" auto-focus placeholder="请输入您的密码" bindinput="inputPassword" value="{{Password}}"></input>
         </view>
       </view>
     </view>

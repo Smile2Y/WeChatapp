@@ -69,7 +69,7 @@ Page({
     // newlist1=this.data.coursedata.value;
 
     wx.request({
-      url: 'http://shx.nat300.top/api/course/getStudentCourse',
+      url: 'http://shx.nat300.top/api/course/getTeacherCourse',
       // method:Post,
       // header: { 'Content-Type': 'json' },
       method: "POST",

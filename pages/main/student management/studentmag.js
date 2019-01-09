@@ -46,7 +46,6 @@ Page({
           })
         }
         // console.log(this.data.userList)
-
       },
       fail:function(error){
         console.log(error)

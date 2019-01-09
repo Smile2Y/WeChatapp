@@ -107,14 +107,9 @@ this.data.id=options.id
           }, 1500)
       },
       fail: function (res) { 
-
       },
       complete: function (res) { 
-
       },
     })
-     
-  
   }
-  
 })

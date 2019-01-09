@@ -129,12 +129,8 @@ Page({
             url: '/pages/main/course management/coursemag/courseCalendar?id=' + that.data.id,
           })
         }, 1500)
-
-
       }
-      
     })
-
   },
   // 课程归档
   applySubmit:function(){
